@@ -1,0 +1,98 @@
+.top_bar {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr max-content max-content;
+  grid-template-rows: 1fr;
+  gap: 1rem;
+  box-shadow: 3px 0 2px rgba(0, 0, 0, 0.5);
+  background-color: rgb(194, 194, 194);
+}
+
+/* La sección del idioma */
+.top_bar__language {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.top_bar__language__container {
+  padding: 1rem 0.9rem;
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.3rem;
+  cursor: pointer;
+}
+
+.top_bar__language_icon {
+  font-size: 1.3rem;
+  color: black;
+}
+
+.top_bar__language_icon--arrow {
+  font-size: 0.8rem;
+  transition: transform 0.4s linear;
+}
+
+.top_bar__language_icon--arrow_down {
+  transform: rotate(180deg);
+}
+
+.top_bar__language_list {
+  --language_list_radius: 0.3rem;
+  border-radius: var(--language_list_radius);
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  position: absolute;
+  left: calc(100% + 0.2rem);
+  top: 0.1rem;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.13),
+  2px 2px 4px rgba(0, 0, 0, 0.125);
+  overflow: hidden;
+  transform: translateY(-1rem);
+  opacity: 0;
+  height: 0;
+  transition-property: transform, opacity;
+  transition-duration: 0.4s;
+  transition-timing-function: linear;
+}
+.top_bar__language_list--active {
+  transform: translateY(0);
+  opacity: 1;
+  height: auto;
+}
+
+.top_bar__language_opt {
+  --language_opt_padding_y: 0.25rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+  padding: var(--language_opt_padding_y) 0.6rem;
+  width: 100%;
+  background-color: transparent;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.2rem;
+}
+.top_bar__language_opt:first-child {
+  padding-top: calc(var(--language_opt_padding_y) * 1.5);
+  border-top-left-radius: var(--language_list_radius);
+  border-top-right-radius: var(--language_list_radius);
+}
+.top_bar__language_opt:last-child {
+  padding-bottom: calc(var(--language_opt_padding_y) * 1.5);
+  border-bottom-left-radius: var(--language_list_radius);
+  border-bottom-right-radius: var(--language_list_radius);
+}
+.top_bar__language_opt:hover {
+  background-color: rgba(0, 0, 0, 0.125);
+}
+
+.top_bar__language_opt_flag {
+  width: 1.1rem;
+}
+

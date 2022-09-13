@@ -8,9 +8,41 @@
 
   <link rel="stylesheet" type="text/css" href="css/base.css">
   <link rel="stylesheet" type="text/css" href="css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="css/top_bar.css">
+  <link rel="stylesheet" type="text/css" href="css/top_bar__language.css">
+
+  <script src="https://kit.fontawesome.com/3ae0f4e5e7.js" crossorigin="anonymous"></script>
 </head>
 <body>
   <div class="container">
+    <nav class="top_bar">
+      <section class="top_bar__language" id="top_bar__language">
+        <div class="top_bar__language__container">
+          <em class="fa-solid fa-language fa-lg top_bar__language_icon"></em>
+          <em 
+            class="
+              fa-solid fa-caret-up fa-lg
+              top_bar__language_icon top_bar__language_icon--arrow
+            "
+            id="top_bar__language_arrow"
+          >
+          </em>
+
+          <ul class="top_bar__language_list" id="top_bar__language_list">
+            <li class="top_bar__language_opt">
+              English
+              <img src="img/US.svg" class="top_bar__language_opt_flag" alt="EEUU Flag">
+            </li>
+            <li class="top_bar__language_opt">
+              Español
+              <img src="img/ES.svg" class="top_bar__language_opt_flag" alt="Spain Flag">
+            </li>
+          </ul>
+        </div>
+      </section>
+    </nav>
   </div>
 </body>
+
+<script src="js/top_bar.js"></script>
 </html>
