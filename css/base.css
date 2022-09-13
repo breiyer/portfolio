@@ -8,6 +8,8 @@
   list-style: none;
   text-decoration: none;
   outline: none;
+  border: none;
+  font-weight: normal;
 }
 
 html, body {
@@ -18,22 +20,62 @@ html, body {
   overflow: hidden;
 }
 
-:root {
-  /* Colores */
-  --color1: rgb(255, 78, 80);
-  --color2: rgb(252, 145, 58);
-  --color3: rgb(205, 179, 128);
-
-  /* Z-index */
-  --animatedBg: 100;
-  --pageContainer: 200;
-}
-
-.title {
-  font-family: 'Rubik Dirt', cursive;
-}
-
 .container {
   width: 100%;
   height: 100%;
+  overflow: auto;
+  background-color: var(--color1);
+}
+
+:root {
+  /* Colores */
+  --color1: rgb(133, 14, 53);
+  --color2: rgb(238, 105, 131);
+  --color3: #F1F1F1;
+  --color_inactive: rgb(92, 89, 89);
+}
+
+.fancy_title {
+  font-family: 'Rubik Dirt', cursive;
+}
+
+.fancy_color {
+  color: var(--color2);
+  background: -webkit-linear-gradient(45deg, var(--color1) 30%, var(--color2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/*Para el scroll*/
+
+/* Tamaño del scroll */
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+ /* Estilos barra (thumb) de scroll */
+*::-webkit-scrollbar-thumb {
+  background: gray;
+  /* border-radius: 4px; */
+}
+
+*::-webkit-scrollbar-thumb:active {
+  background-color: #999999;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: #b3b3b3;
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+ /* Estilos track de scroll */
+*::-webkit-scrollbar-track {
+  background: #dddddd;
+  /* border-radius: 5px; */
+}
+
+*::-webkit-scrollbar-track:hover, 
+*::-webkit-scrollbar-track:active {
+  background: #d4d4d4;
 }
