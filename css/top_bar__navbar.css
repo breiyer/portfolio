@@ -1,0 +1,61 @@
+/* El contenedor de la navbar */
+.top_bar__navbar_container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  width: max-content;
+  padding-right: 3rem;
+}
+
+/* La barra de navegación del sitio (navbar) */
+.top_bar__navbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+  border-bottom: 2px gray solid;
+  position: relative;
+}
+
+/* Los item del navbar */
+.top_bar__navbar_item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  gap: 0.1rem;
+  cursor: pointer;
+  --num_color: var(--color_inactive);
+}
+/* Efecto de hover y active en los item */
+.top_bar__navbar_item--active {
+  --num_color: var(--color1);
+}
+.top_bar__navbar_item:hover {
+  --num_color: var(--color1);
+}
+
+/* La parte izquierda de los item (el número y el punto) */
+.top_bar__navbar_item_left {
+  color: var(--num_color);
+  font-size: 1.15rem;
+  font-weight: bold;
+  overflow: visible;
+  position: relative;
+}
+
+/* La parte derecha de los item (el nombre del item) */
+.top_bar__navbar_item_right {
+  color: black;
+  font-size: 0.9rem;
+}
+
+/* La línea que se mueve y marca la sección donde se está */
+.top_bar__navbar_line {
+  position: absolute;
+  width: 0px;
+  height: 2px;
+  left: 0;
+  top: 100%;
+  background-color: var(--color1);
+  transition: all 0.5s ease 0.1s;
+}
