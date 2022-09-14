@@ -1,0 +1,45 @@
+.top_bar__contact {
+  display: grid;
+  grid-template-columns: 3rem;
+  grid-template-rows: 2rem;
+  grid-auto-flow: row;
+  grid-auto-rows: 2rem;
+  position: fixed;
+  left: 0;
+  bottom: 20rem;
+}
+
+/* Los links */
+.top_bar__contact_link {
+  font-size: 1.5rem;
+  color: var(--color_inactive);
+  transition: color 0.5s linear;
+}
+.top_bar__contact_link--github:hover {
+  color: black;
+}
+.top_bar__contact_link--linkedin:hover {
+  color: rgb(10, 99, 188);
+}
+.top_bar__contact_link--mail:hover {
+  color: rgb(188, 10, 10);
+}
+
+/* El label */
+.top_bar__contact_label {
+  width: max-content;
+  position: absolute;
+  left: -0.8rem;
+  top: calc(100% + 1.5rem);
+  transform: rotate(269deg);
+  font-size: 1rem;
+}
+.top_bar__contact_label::before {
+  content: "";
+  position: absolute;
+  top: calc(50% - 0.75px);
+  right: calc(100% + 0.2rem);
+  width: 6rem;
+  height: 1.5px;
+  background-color: gray;
+}
