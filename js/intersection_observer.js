@@ -1,6 +1,14 @@
+/**
+ * - Esta función le agrega la clase --active al item del navbar del
+ *   portafolio que corresponda a la sección del portafolio en la que
+ *   se encuentra el usuario.
+ * - También mueve la barra del navbar a la posición del item activo,
+ *   y lo ajusta a su width.
+ * 
+ * @param {String} sectionId Id de la sección del portafolio en la que se está.
+ */
 function updateNavBarLine(sectionId) {
   const menuOptToActive = document.querySelector(`a[href="#${sectionId}"]`)
-  console.log(menuOptToActive, 'm', sectionId)
   menuOptToActive.classList.add('top_bar__navbar_item--active')
 
   const navBar = document.querySelector('.top_bar__navbar_line')
@@ -33,16 +41,16 @@ function updateNavBarLine(sectionId) {
 
 /**
  * - El IntersectionObserver se encarga de monitorizar si dicho 
- * - objeto HTML al que observa se encuentra a cierta distancia de 
- * - la parte visible de la pantalla del dispositivo, o de otro objeto 
- * - HTML.
+ *   objeto HTML al que observa se encuentra a cierta distancia de 
+ *   la parte visible de la pantalla del dispositivo, o de otro objeto 
+ *   HTML.
  * 
  * - El primer parámetro es la función a la que va a llamar cada vez que 
- * - uno de los elementos a los que observa cumple con las condiciones 
- * - establecidas o cuando ya no cumple con estas, es decir, cuando ha sido 
- * - intersectado y cuando ya no lo está.
+ *   uno de los elementos a los que observa cumple con las condiciones 
+ *   establecidas o cuando ya no cumple con estas, es decir, cuando ha sido 
+ *   intersectado y cuando ya no lo está.
  * - El segundo parámetro es un diccionario con las opciones que establecen 
- * - las condiciones para que un objeto sea considerado como intersectado.
+ *   las condiciones para que un objeto sea considerado como intersectado.
  */
 const observador = new IntersectionObserver(activeMenuOpt, {
 	root: null,  // Si se establece en null se toma como referencia la 
@@ -75,7 +83,6 @@ function startIntersectionObserver(){
 	// Se recorren los objetos HTML con la clase "animateOnScroll"
   elementsToAnimate.forEach(element => {
     // Se les agrega el observador
-    console.log(element, 'i_watcher')
     observador.observe(element)
   });
 }

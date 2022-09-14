@@ -2,7 +2,7 @@
   width: 100%;
   height: 100vh;
 }
-.p_sections--about {
+/* .p_sections--about {
   background-image: linear-gradient(var(--color1), var(--color2));
 }
 .p_sections--work {
@@ -10,4 +10,4 @@
 }
 .p_sections--skills {
   background-image: linear-gradient(navy, rosybrown);
-}
+} */
