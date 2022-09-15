@@ -6,7 +6,7 @@
 }
 
 .top_bar__language__container {
-  padding: 1rem 0.9rem;
+  padding: 0.3rem 0.9rem;
   position: relative;
   display: flex;
   justify-content: flex-start;
@@ -16,12 +16,12 @@
 }
 
 .top_bar__language_icon {
-  font-size: 1.3rem;
+  font-size: 1.6rem;
   color: black;
 }
 
 .top_bar__language_icon--arrow {
-  font-size: 0.8rem;
+  font-size: 1.2rem;
   transition: transform 0.4s linear;
 }
 
@@ -49,6 +49,7 @@
   transition-property: transform, opacity;
   transition-duration: 0.4s;
   transition-timing-function: linear;
+  z-index: var(--zI_popups);
 }
 .top_bar__language_list--active {
   transform: translate(-0.5rem, 0);

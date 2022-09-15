@@ -13,19 +13,26 @@
   <link rel="stylesheet" type="text/css" href="css/top_bar__contact.css">
   <link rel="stylesheet" type="text/css" href="css/top_bar__navbar.css">
   <link rel="stylesheet" type="text/css" href="css/portfolio_sections.css">
+  <link rel="stylesheet" type="text/css" href="css/about_section.css">
+  <link rel="stylesheet" type="text/css" href="css/about_section__contact.css">
 
   <script src="https://kit.fontawesome.com/3ae0f4e5e7.js" crossorigin="anonymous"></script>
 </head>
 <body>
   <div class="container">
+
+    <!-- La barra superior flotante -->
     <nav class="top_bar">
+
+      <!-- El plegable para cambiar idioma -->
       <section class="top_bar__language" id="top_bar__language">
         <div class="top_bar__language__container">
-          <em class="fa-solid fa-language fa-lg top_bar__language_icon"></em>
+          <em class="fa-solid fa-language top_bar__language_icon"></em>
           <em 
             class="
-              fa-solid fa-caret-up fa-lg
-              top_bar__language_icon top_bar__language_icon--arrow
+              fa-solid fa-caret-up
+              top_bar__language_icon
+              top_bar__language_icon--arrow
             "
             id="top_bar__language_arrow"
           >
@@ -44,7 +51,10 @@
         </div>
       </section>
 
+      <!-- La parte de contactar -->
       <section class="top_bar__contact">
+        <small class="top_bar__contact_label">I'm here</small>
+
         <a
           class="top_bar__contact_link top_bar__contact_link--github"
           href="https://github.com/breiyer"
@@ -74,10 +84,9 @@
           >
           <em class="fa-solid fa-square-envelope fa-fw fa-lg"></em>
         </a>
-
-        <small class="top_bar__contact_label">I'm here</small>
       </section>
 
+      <!-- El navbar -->
       <section class="top_bar__navbar_container">
         <ul class="top_bar__navbar">
           <div class="top_bar__navbar_line"></div>
@@ -100,8 +109,49 @@
       </section>
     </nav>
 
-    <div class="p_sections p_sections--about" id="about" i_watcher></div>
+    <!-- Secciones del portafolio (about, skills, work) -->
+
+    <!-- El about -->
+    <div class="p_sections p_sections--about" id="about" i_watcher>
+      <section class="about__contact">
+        <div class="about__contact__container">
+          <a
+            class="about__contact_link about__contact_link--github"
+            href="https://github.com/breiyer"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Visitar perfil"
+          >
+            <em class="fa-brands fa-square-github fa-fw fa-lg"></em>
+          </a>
+
+          <a
+            class="about__contact_link about__contact_link--linkedin"
+            href="https://www.linkedin.com/in/breiyer-corpas-amaya-97a1531b9/"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Visitar perfil"
+            >
+            <em class="fa-brands fa-linkedin fa-fw fa-lg"></em>
+          </a>
+
+          <a
+            class="about__contact_link about__contact_link--mail"
+            href="mailto:breiyer@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Enviar correo"
+            >
+            <em class="fa-solid fa-square-envelope fa-fw fa-lg"></em>
+          </a>
+
+          <small class="about__contact_label">I'm here</small>
+        </div>
+      </section>
+    </div>
+
     <div class="p_sections p_sections--skills" id="skills" i_watcher></div>
+
     <div class="p_sections p_sections--work" id="work" i_watcher></div>
   </div>
 </body>

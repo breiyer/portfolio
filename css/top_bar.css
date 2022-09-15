@@ -1,7 +1,7 @@
 .top_bar {
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr max-content max-content;
+  grid-template-columns: max-content max-content 1fr;
   grid-template-rows: 1fr;
   gap: 1rem;
   box-shadow: 3px 0 2px rgba(0, 0, 0, 0.5);

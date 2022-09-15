@@ -1,0 +1,55 @@
+.about__contact {
+  height: 100%;
+  width: max-content;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.about__contact__container {
+  display: grid;
+  grid-template-columns: 3rem;
+  grid-template-rows: 2rem;
+  grid-auto-flow: row;
+  grid-auto-rows: 2rem;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding-left: 0.2rem;
+  position: relative;
+}
+
+/* Los links */
+.about__contact_link {
+  font-size: 1.5rem;
+  color: var(--color_inactive);
+  transition: color 0.5s linear;
+}
+.about__contact_link--github:hover {
+  color: black;
+}
+.about__contact_link--linkedin:hover {
+  color: rgb(10, 99, 188);
+}
+.about__contact_link--mail:hover {
+  color: rgb(188, 10, 10);
+}
+
+/* El label */
+.about__contact_label {
+  width: max-content;
+  position: absolute;
+  left: -0.65rem;
+  top: calc(100% + 1.5rem);
+  transform: rotate(269deg);
+  font-size: 1rem;
+}
+.about__contact_label::before {
+  content: "";
+  position: absolute;
+  top: calc(50% - 0.75px);
+  right: calc(100% + 0.2rem);
+  width: 6rem;
+  height: 1.5px;
+  background-color: gray;
+}
