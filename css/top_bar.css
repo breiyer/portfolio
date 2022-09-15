@@ -8,4 +8,5 @@
   background-color: var(--color3);
   position: sticky;
   top: 0;
+  z-index: var(--zI_nav_bar);
 }

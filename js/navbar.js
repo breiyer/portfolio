@@ -17,6 +17,11 @@ function updateNavBarLine(sectionId) {
   
   navBar.style.left = `${navBarLinePosX}px`
   navBar.style.width = `${navBarLineWidth}px`
+
+	const contactInTopBar = document.querySelector('#top_bar__contact')
+	if (sectionId !== 'about')
+		contactInTopBar.classList.add('top_bar__contact--reveal')
+	else contactInTopBar.classList.remove('top_bar__contact--reveal')
 }
 
 
@@ -76,7 +81,7 @@ const observador = new IntersectionObserver(activeMenuOpt, {
  * - Función para agregar los eventos de IntersectionObserver (observadores) 
  * a todos los objetos HTML con el atributo "i_watcher".
  */
-function startIntersectionObserver(){
+function startNavbarIntersectionObserver(){
 	// Objetos HTML con la clase "animateOnScroll"
   const elementsToAnimate = document.querySelectorAll('[i_watcher]')
 

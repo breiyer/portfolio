@@ -2,6 +2,27 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+}
+/* Mientras la sección de contactar deba estar oculta, este pseudo
+elemento la cubre para que no se vea y no se pueda interactuar con ella */
+.top_bar__contact::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  cursor: default;
+  background-color: var(--color3);
+}
+
+/* Cuando se revele la sección de contactar */
+.top_bar__contact--reveal {
+  animation: appearFromLeft 1.3s 1;
+}
+.top_bar__contact--reveal::after {
+  display: none;
 }
 
 /* Los links */

@@ -17,6 +17,7 @@
   justify-content: flex-start;
   padding-left: 0.2rem;
   position: relative;
+  z-index: 1;
 }
 
 /* Los links */
