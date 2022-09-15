@@ -69,7 +69,7 @@ const observador = new IntersectionObserver(activeMenuOpt, {
 	// envías 2 el primero será asignado para las direcciones de top y bottom, y el segundo 
 	// será asignado para las direcciones de left y right, y si envias 4 se tomarán para las 
 	// direcciones de top, right, bottom, y left respectivamente.
-	threshold: .5  // Indica cuánto porcentaje del objeto HTML observado debe se va a considerar.
+	threshold: .7  // Indica cuánto porcentaje del objeto HTML observado debe se va a considerar.
 	// Si se coloca .1; se entiende que con cuando el 10% del objeto HTML observado esté a la distancia 
 	// esperada, basta para considerar que está intersectado, y si se coloca 1; se entiende que la 
 	// totalidad del objeto HTML observado debe estar a la distancia esperada para considerar que está 

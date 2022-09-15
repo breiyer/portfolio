@@ -6,7 +6,8 @@
   gap: 1rem;
   box-shadow: 3px 0 2px rgba(0, 0, 0, 0.5);
   background-color: var(--color3);
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
   z-index: var(--zI_nav_bar);
 }
