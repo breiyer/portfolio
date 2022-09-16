@@ -64,19 +64,18 @@
 }
 
 /* Responsive */
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1100px) {
+  /* El contenedor principal */
+  .about__contact {
+    justify-content: flex-start;
+    grid-area: about__contact;
+  }
 }
 
 @media screen and (max-width: 900px) {
 }
 
 @media screen and (max-width: 700px) {
-  /* El contenedor principal */
-  .about__contact {
-    justify-content: flex-start;
-    grid-area: about__contact;
-  }
-
   /* El contenedor de los link */
   .about__contact_container {
     display: grid;

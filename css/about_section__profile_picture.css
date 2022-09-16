@@ -20,13 +20,7 @@
 }
 
 /* Responsive */
-@media screen and (max-width: 1200px) {
-}
-
-@media screen and (max-width: 900px) {
-}
-
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 1100px) {
   /* La parte de la foto de perfil */
   .about__profile_picture {
     justify-content: center;
@@ -36,6 +30,12 @@
   .about__profile_picture {
     grid-area: about__profile_picture;
   }
+}
+
+@media screen and (max-width: 900px) {
+}
+
+@media screen and (max-width: 700px) {
 }
 
 @media screen and (max-width: 500px) {

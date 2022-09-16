@@ -50,18 +50,17 @@
 }
 
 /* Responsive */
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1100px) {
+  .about__about_me_container {
+    padding: 1rem 0.5rem;
+    grid-area: about__about_me;
+  }
 }
 
 @media screen and (max-width: 900px) {
 }
 
 @media screen and (max-width: 700px) {
-  .about__about_me_container {
-    padding: 1rem 0.5rem;
-    grid-area: about__about_me;
-  }
-
   /* El texto de arriba */
   .about__about_me_hi {
     font-size: 4.5rem;
