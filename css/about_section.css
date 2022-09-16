@@ -1,5 +1,24 @@
+/* El contenedor de toda la sección de About */
 .p_sections--about {
   display: grid;
   grid-template-columns: max-content max-content 1fr;
   grid-template-rows: 1fr;
+}
+
+/* La parte de la foto de perfil */
+.about__profile_picture {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.about__profile_picture__photo {
+  --photo_size: 16rem;
+  width: var(--photo_size);
+  height: var(--photo_size);
+  background-image: url('../img/BreiyerCorpasAmaya.jpg');
+  border-radius: 1000px;
+  background-size: cover;
+  background-position: top center;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, .25);
 }
