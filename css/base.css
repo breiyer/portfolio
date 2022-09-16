@@ -30,8 +30,8 @@ html, body {
 
 :root {
   /* Colores */
-  --color1: teal;
-  --color2: rgb(114, 255, 255);
+  --color1: rgb(133, 14, 53);
+  --color2: rgb(238, 105, 131);
   --color3: rgb(248 249 251);
   --color4: rgb(204 204 204);
   --color_inactive: rgba(92, 89, 89, 1);

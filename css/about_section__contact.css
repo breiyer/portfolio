@@ -24,7 +24,12 @@
 .about__contact_link {
   font-size: 1.5rem;
   color: var(--color_inactive);
-  transition: color 0.5s linear;
+  transition-property: color, transform;
+  transition-duration: 0.5s;
+  transition-timing-function: ease;
+}
+.about__contact_link:hover {
+  transform: scale(0.9);
 }
 .about__contact_link--github:hover {
   color: black;
