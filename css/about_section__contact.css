@@ -7,7 +7,7 @@
   flex-direction: column;
 }
 
-.about__contact__container {
+.about__contact_container {
   display: grid;
   grid-template-columns: 3rem;
   grid-template-rows: 2rem;

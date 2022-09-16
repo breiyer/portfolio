@@ -11,3 +11,22 @@
   left: 0;
   z-index: var(--zI_nav_bar);
 }
+
+/* Responsive */
+@media screen and (max-width: 1200px) {
+}
+
+@media screen and (max-width: 900px) {
+}
+
+@media screen and (max-width: 700px) {
+  .top_bar {
+    grid-template-columns: max-content 1fr;
+  }
+}
+
+@media screen and (max-width: 500px) {
+}
+
+@media screen and (max-width: 400px) {
+}
