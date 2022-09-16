@@ -32,7 +32,7 @@
   transform: scale(0.9);
 }
 .about__contact_link--github:hover {
-  color: black;
+  color: white;
 }
 .about__contact_link--linkedin:hover {
   color: rgb(10, 99, 188);
@@ -49,6 +49,7 @@
   top: calc(100% + 1.5rem);
   transform: rotate(269deg);
   font-size: 1rem;
+  color: white;
 }
 .about__contact_label::before {
   content: "";

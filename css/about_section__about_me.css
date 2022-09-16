@@ -12,7 +12,7 @@
 /* El texto de arriba */
 .about__about_me_hi {
   color: var(--color2);
-  background: -webkit-linear-gradient(297deg, black, var(--color2));
+  background: -webkit-linear-gradient(297deg, white, var(--color1));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size: 5.5rem;
@@ -33,6 +33,7 @@
   text-align: left;
   max-width: 35rem;
   line-height: 1.3;
+  color: white;
 }
 
 /* El botón para descargar el curriculum */

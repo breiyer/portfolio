@@ -8,6 +8,12 @@
  * @param {String} sectionId Id de la sección del portafolio en la que se está.
  */
 function updateNavBarLine(sectionId) {
+	document.querySelectorAll('.top_bar__navbar_item').forEach(element => {
+    // Se les quita la clase active a todos los item, para luego
+		// agregarla al item activo.
+    element.classList.remove('top_bar__navbar_item--active')
+  })
+
   const menuOptToActive = document.querySelector(`a[href="#${sectionId}"]`)
   menuOptToActive.classList.add('top_bar__navbar_item--active')
 
