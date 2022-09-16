@@ -1,3 +1,4 @@
+/* El contenedor principal */
 .about__contact {
   height: 100%;
   width: max-content;
@@ -7,6 +8,7 @@
   flex-direction: column;
 }
 
+/* El contenedor de los link */
 .about__contact_container {
   display: grid;
   grid-template-columns: 3rem;
@@ -59,4 +61,54 @@
   width: 6rem;
   height: 1.5px;
   background-color: gray;
+}
+
+/* Responsive */
+@media screen and (max-width: 1200px) {
+}
+
+@media screen and (max-width: 900px) {
+}
+
+@media screen and (max-width: 700px) {
+  /* El contenedor principal */
+  .about__contact {
+    justify-content: flex-start;
+    grid-area: about__contact;
+  }
+
+  /* El contenedor de los link */
+  .about__contact_container {
+    display: grid;
+    grid-template-columns: 3rem;
+    grid-template-rows: 2.5rem;
+    grid-auto-rows: 2.5rem;
+  }
+
+  /* Los links */
+  .about__contact_link {
+    font-size: 2rem;
+  }
+
+  /* El label */
+  .about__contact_label {
+    left: -0.55rem;
+    top: calc(100% + 2rem);
+    font-size: 1.2rem;
+  }
+  .about__contact_label::before {
+    content: "";
+    position: absolute;
+    top: calc(50% - 0.75px);
+    right: calc(100% + 0.2rem);
+    width: 6rem;
+    height: 1.5px;
+    background-color: gray;
+  }
+}
+
+@media screen and (max-width: 500px) {
+}
+
+@media screen and (max-width: 400px) {
 }

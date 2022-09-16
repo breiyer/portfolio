@@ -5,23 +5,28 @@
   grid-template-rows: 1fr;
 }
 
-/* La parte de la foto de perfil */
-.about__profile_picture {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+/* Responsive */
+@media screen and (max-width: 1200px) {
 }
 
-.about__profile_picture__photo {
-  --photo_size: 16rem;
-  width: var(--photo_size);
-  height: var(--photo_size);
-  background-image: url('../img/BreiyerCorpasAmaya.jpg');
-  border-radius: 1000px;
-  background-size: cover;
-  background-position: top center;
-  box-shadow: 1px 1px 4px rgba(0, 0, 0, .25),
-              20px 19px 0 var(--color2),
-              -20px -19px 0 var(--color1)
-  ;
+@media screen and (max-width: 900px) {
+}
+
+@media screen and (max-width: 700px) {
+  .p_sections--about {
+    display: grid;
+    grid-template-areas: 
+                "aux about__profile_picture"
+                "about__contact about__about_me";
+    grid-template-columns: max-content 1fr;
+    grid-template-rows: max-content max-content;
+    padding-top: 5rem;
+    gap: 0.5rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+}
+
+@media screen and (max-width: 400px) {
 }

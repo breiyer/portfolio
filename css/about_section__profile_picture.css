@@ -1,0 +1,45 @@
+/* La parte de la foto de perfil */
+.about__profile_picture {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.about__profile_picture__photo {
+  --photo_size: 16rem;
+  width: var(--photo_size);
+  height: var(--photo_size);
+  background-image: url('../img/BreiyerCorpasAmaya.jpg');
+  border-radius: 1000px;
+  background-size: cover;
+  background-position: top center;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, .25),
+              20px 19px 0 var(--color2),
+              -20px -19px 0 var(--color1)
+  ;
+}
+
+/* Responsive */
+@media screen and (max-width: 1200px) {
+}
+
+@media screen and (max-width: 900px) {
+}
+
+@media screen and (max-width: 700px) {
+  /* La parte de la foto de perfil */
+  .about__profile_picture {
+    justify-content: center;
+  }
+
+  /* La parte de la foto de perfil */
+  .about__profile_picture {
+    grid-area: about__profile_picture;
+  }
+}
+
+@media screen and (max-width: 500px) {
+}
+
+@media screen and (max-width: 400px) {
+}

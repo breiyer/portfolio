@@ -102,12 +102,27 @@
 @media screen and (max-width: 700px) {
   /* Los iconos del botón para cambiar de idioma */
   .top_bar__language_icon {
-    font-size: 1.8rem;
+    font-size: 1.9rem;
   }
   
   /* El icono de flecha */
   .top_bar__language_icon--arrow {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
+  }
+
+  /* El contenedor de la lista plegable de idiomas */
+  .top_bar__language_list {
+    top: 1rem;
+  }
+
+  /* Las opciones de idiomas */
+  .top_bar__language_opt {
+    font-size: 1.2rem;
+  }
+
+  /* Las banderas de las opciones de idiomas */
+  .top_bar__language_opt_flag {
+    width: 1.5rem;
   }
 }
 
