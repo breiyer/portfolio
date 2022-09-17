@@ -59,6 +59,76 @@
   transition: all 0.5s ease 0.1s;
 }
 
+/* El botón que se revela en responsive */
+/* Botón de hamburguesa */
+.fancy_btn {
+  --fancy_btn_size: 3rem;
+  width: var(--fancy_btn_size);
+  height: var(--fancy_btn_size);
+  background-color: var(--color1);
+  border-radius: 50%;
+  position: relative;
+  box-shadow: inset -.3rem -.3rem 12px rgba(0, 0, 0, .1),
+  inset .7rem .7rem 12px rgba(255, 255, 255, .15);
+  align-self: center;
+  display: none;
+}
+.fancy_btn:hover {
+  cursor: pointer;
+}
+.fancy_btn::before {
+  content: "";
+  width: 80%;
+  height: 80%;
+  background-color: var(--color1);
+  border-radius: 50%;
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  box-shadow: inset .3rem .3rem 12px rgba(0, 0, 0, .1),
+  inset -.7rem -.7rem 12px rgba(255, 255, 255, .15);
+}
+
+.fancy_btn__bar {
+  width: 50%;
+  height: 8%;
+  background-color: white;
+  position: absolute;
+  left: 25%;
+  border-radius: 1000px;
+  transition: all .4s;
+}
+
+.fancy_btn__bar--bar1 {
+  top: 30%;
+}
+.fancy_btn__bar--bar2 {
+  top: 46%;
+  opacity: 1;
+}
+.fancy_btn__bar--bar3 {
+  top: 61%;
+}
+
+/* Cuando se active el botón de hamburguesa */
+.fancy_btn--active {
+  z-index: var(--zI_full_screen_elements);
+}
+
+.fancy_btn--active .fancy_btn__bar--bar1 {
+  transform: rotate(45deg);
+  top: 47%;
+}
+
+.fancy_btn--active .fancy_btn__bar--bar2 {
+  opacity: 0;
+}
+
+.fancy_btn--active .fancy_btn__bar--bar3 {
+  transform: rotate(-45deg);
+  top: 47%;
+}
+
 /* Responsive */
 @media screen and (max-width: 1200px) {
 }
@@ -80,6 +150,46 @@
   /* La parte derecha de los item (el nombre del item) */
   .top_bar__navbar_item_right {
     font-size: 1.1rem;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  /* El contenedor de la navbar */
+  .top_bar__navbar_container {
+    justify-content: space-between;
+    padding: 0.3rem 1rem;
+  }
+
+  /* La barra de navegación del sitio (navbar) */
+  .top_bar__navbar {
+    gap: 0;
+  }
+
+  /* Los item del navbar */
+  .top_bar__navbar_item {
+    max-width: 0;
+    overflow: hidden;
+    padding-bottom: 0.4rem;
+  }
+  /* Efecto de active en los item */
+  .top_bar__navbar_item--active {
+    animation: appear_from_bottom .5s ease 1;
+    max-width: 1000px;
+  }
+
+  /* La parte izquierda de los item (el número y el punto) */
+  .top_bar__navbar_item_left {
+    font-size: 1.55rem;
+  }
+
+  /* La parte derecha de los item (el nombre del item) */
+  .top_bar__navbar_item_right {
+    font-size: 1.3rem;
+  }
+
+  /* Botón del responsive (hamburguesa) */
+  .fancy_btn {
+    display: block;
   }
 }
 

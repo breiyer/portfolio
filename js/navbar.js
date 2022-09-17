@@ -97,3 +97,10 @@ function startNavbarIntersectionObserver(){
     observador.observe(element)
   });
 }
+
+document.querySelector('#fancy_btn').addEventListener('click', toggleNavBar, false)
+
+function toggleNavBar() {
+  document.querySelector('#fancy_btn').classList
+    .toggle('fancy_btn--active')
+}

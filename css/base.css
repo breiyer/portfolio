@@ -41,6 +41,8 @@ html, body {
   /* Z-Index */
   --zI_nav_bar: 100;
   --zI_popups: 500;
+  --zI_full_screen_containers: 600;
+  --zI_full_screen_elements: 700;
 }
 
 .fancy_title {
@@ -56,9 +58,9 @@ html, body {
 
 /* Animaciones */
 .appear_from_left {
-  animation: appearFromLeft 1.3s 1;
+  animation: appear_from_left 1.3s 1;
 }
-@keyframes appearFromLeft {
+@keyframes appear_from_left {
   0%{
     transform: translate(-3rem, 0);
     opacity: 0;
@@ -66,6 +68,20 @@ html, body {
   100%{
     transform: translate(0, 0);
     opacity: 1;
+  }
+}
+
+.appear_from_bottom {
+  animation: appear_from_bottom 1.3s 1;
+}
+@keyframes appear_from_bottom{
+  0%{
+    transform: translate(0, 3rem);
+    opacity: 0;
+  }
+  100%{
+      transform: translate(0, 0);
+      opacity: 1;
   }
 }
 

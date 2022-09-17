@@ -126,6 +126,30 @@
   }
 }
 
+@media screen and (max-width: 650px) {
+  /* Los iconos del botón para cambiar de idioma */
+  .top_bar__language_icon {
+    font-size: 2.5rem;
+  }
+  
+  /* El icono de flecha */
+  .top_bar__language_icon--arrow {
+    font-size: 2.2rem;
+  }
+
+  /* Las opciones de idiomas */
+  .top_bar__language_opt {
+    font-size: 1.4rem;
+    --language_opt_padding_y: 0.45rem;
+    gap: 0.4rem;
+  }
+
+  /* Las banderas de las opciones de idiomas */
+  .top_bar__language_opt_flag {
+    width: 1.7rem;
+  }
+}
+
 @media screen and (max-width: 500px) {
 }
 

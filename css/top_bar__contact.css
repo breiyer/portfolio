@@ -92,6 +92,22 @@ elemento la cubre para que no se vea y no se pueda interactuar con ella */
   }
 }
 
+@media screen and (max-width: 650px) {
+  .top_bar__contact {
+    padding: 0.5rem;
+  }
+
+  /* Los links */
+  .top_bar__contact_link {
+    font-size: 1.6rem;
+  }
+
+  /* El label */
+  .top_bar__contact_label {
+    font-size: 1.4rem;
+  }
+}
+
 @media screen and (max-width: 500px) {
 }
 
