@@ -90,7 +90,9 @@
 
       <!-- El navbar -->
       <section class="top_bar__navbar_container">
-        <ul class="top_bar__navbar">
+        <ul class="top_bar__navbar" id="top_bar__navbar">
+          <div class="top_bar__navbar__profile_photo my_photo"></div>
+
           <div class="top_bar__navbar_line"></div>
 
           <a class="top_bar__navbar_item" title="Ir" href="#about">
@@ -185,7 +187,7 @@
       </section>
 
       <section class="about__profile_picture">
-        <div class="about__profile_picture__photo"></div>
+        <div class="about__profile_picture__photo my_photo"></div>
       </section>
     </div>
 
@@ -196,6 +198,5 @@
 </body>
 
 <script src="js/top_bar.js"></script>
-<script src="js/navbar.js"></script>
 <script>startNavbarIntersectionObserver()</script>
 </html>
