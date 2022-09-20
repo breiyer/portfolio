@@ -19,7 +19,7 @@ elemento la cubre para que no se vea y no se pueda interactuar con ella */
 
 /* Cuando se revele la sección de contactar */
 .top_bar__contact--reveal {
-  animation: appearFromLeft 1.3s 1;
+  animation: appear_from_left 1.3s 1;
 }
 .top_bar__contact--reveal::after {
   display: none;

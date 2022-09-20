@@ -19,33 +19,37 @@
   <link rel="stylesheet" type="text/css" href="css/about_section__profile_picture.css">
 
   <script src="https://kit.fontawesome.com/3ae0f4e5e7.js" crossorigin="anonymous"></script>
+  <script src="js/vue.js"></script>
 </head>
 <body>
-  <div class="container">
+  <div class="container" id="app">
 
     <!-- La barra superior flotante -->
     <nav class="top_bar">
 
       <!-- El plegable para cambiar idioma -->
       <section class="top_bar__language" id="top_bar__language">
-        <div class="top_bar__language__container">
+        <div class="top_bar__language__container" @click="toggleLanguageList()">
           <em class="fa-solid fa-language top_bar__language_icon"></em>
-          <em 
+          <em
+            :class="{ 'top_bar__language_icon--arrow_down': languageService.langList.active }"
             class="
               fa-solid fa-caret-up
               top_bar__language_icon
               top_bar__language_icon--arrow
             "
-            id="top_bar__language_arrow"
           >
           </em>
 
-          <ul class="top_bar__language_list" id="top_bar__language_list">
-            <li class="top_bar__language_opt">
+          <ul
+            :class="{ 'top_bar__language_list--active': languageService.langList.active }"
+            class="top_bar__language_list"
+          >
+            <li class="top_bar__language_opt" @click="setLanguage('en')">
               English
               <img src="img/US.svg" class="top_bar__language_opt_flag" alt="EEUU Flag">
             </li>
-            <li class="top_bar__language_opt">
+            <li class="top_bar__language_opt" @click="setLanguage('es')">
               Español
               <img src="img/ES.svg" class="top_bar__language_opt_flag" alt="Spain Flag">
             </li>
@@ -54,8 +58,11 @@
       </section>
 
       <!-- La parte de contactar -->
-      <section class="top_bar__contact" id="top_bar__contact">
-        <small class="top_bar__contact_label">I'm here</small>
+      <section
+        :class="{ 'top_bar__contact--reveal': !section_about }"
+        class="top_bar__contact"
+      >
+        <small class="top_bar__contact_label">{{ setTranslationPoint('test') }}</small>
 
         <a
           class="top_bar__contact_link top_bar__contact_link--github"
@@ -90,28 +97,53 @@
 
       <!-- El navbar -->
       <section class="top_bar__navbar_container">
-        <ul class="top_bar__navbar" id="top_bar__navbar">
+        <ul
+          :class="{ 'top_bar__navbar--responsive': showResponsiveNavBarMenu }"
+          class="top_bar__navbar"
+        >
           <div class="top_bar__navbar__profile_photo my_photo"></div>
 
           <div class="top_bar__navbar_line"></div>
 
-          <a class="top_bar__navbar_item" title="Ir" href="#about">
+          <a
+            :class="{ 'top_bar__navbar_item--active': section_about }"
+            class="top_bar__navbar_item"
+            title="Ir"
+            href="#about"
+            @click="watchNavBarItemClick()"
+          >
             <span class="top_bar__navbar_item_left">01.</span>
             <span class="top_bar__navbar_item_right">About</span>
           </a>
 
-          <a class="top_bar__navbar_item" title="Ir" href="#skills">
+          <a
+            :class="{ 'top_bar__navbar_item--active': section_skills }"
+            class="top_bar__navbar_item"
+            title="Ir"
+            href="#skills"
+            @click="watchNavBarItemClick()"
+          >
             <span class="top_bar__navbar_item_left">02.</span>
             <span class="top_bar__navbar_item_right">Skills</span>
           </a>
 
-          <a class="top_bar__navbar_item" title="Ir" href="#work">
+          <a
+            :class="{ 'top_bar__navbar_item--active': section_work }"
+            class="top_bar__navbar_item"
+            title="Ir"
+            href="#work"
+            @click="watchNavBarItemClick()"
+          >
             <span class="top_bar__navbar_item_left">03.</span>
             <span class="top_bar__navbar_item_right">Work</span>
           </a>
         </ul>
 
-        <button class="fancy_btn" id="fancy_btn">
+        <button
+          :class="{ 'fancy_btn--active': showResponsiveNavBarMenu }"
+          class="fancy_btn"
+          @click="toggleResponsiveNavBar()"
+        >
           <em class="fancy_btn__bar fancy_btn__bar--bar1"></em>
           <em class="fancy_btn__bar fancy_btn__bar--bar2"></em>
           <em class="fancy_btn__bar fancy_btn__bar--bar3"></em>
@@ -170,14 +202,14 @@
         <div class="about__about_me_info">
           My name is <strong>Breiyer Corpas Amaya</strong>,
           i am from Colombia. You can find my curriculum here
-          <a
+          (<a
             class="about__about_me_info__download"
             href="HV - Breiyer Corpas Amaya.pdf"
             target="_blank"
             rel="noopener noreferrer"
             >
             Download <em class="fa-solid fa-file-pdf fa-lg"></em>
-          </a>.
+          </a>).
           I have been working for more than three years in web development projects,
           and I have achieved the title of systems engineer.
           Remember,
@@ -197,6 +229,5 @@
   </div>
 </body>
 
-<script src="js/top_bar.js"></script>
-<script>startNavbarIntersectionObserver()</script>
+<script src="js/vue.app.js"></script>
 </html>
