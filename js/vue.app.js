@@ -52,60 +52,21 @@ class SiteNavService {
   }
 }
 
-class LanguageService {
-  translationDict = {
-    test: {
-      es: 'Contáctame', en: 'I\'m here',
-    },
-  }
-
-  langList = { active: false }
-
-  /**
-   * 
-   * - Esta función es para traducir la página según sea
-   *   el idioma escogido.
-   * 
-   * @param {String} element Nombre del elemento del diccionario
-   * @param {String} language Lenguage en el que se quiere devolver su valor
-   * @returns Devuelve el valor del elemento del diccionario según el idioma.
-   */
-  setTranslationPoint(element, language) {
-    return this.translationDict[element][language]
-  }
-
-  /**
-   * - Hace toggle de las clases necesarias para
-   *   desplegar/replegar la lista de idiomas disponibles.
-   */
-  toggleLanguageList() {
-    this.langList.active = !this.langList.active
-  }
-}
-
 const { createApp } = Vue
-const appId = '#app'
 createApp({
-  el: appId,
 
   data() {
     return {
-      // -- Clases
-
-      // Clase para lo relacionado con la funcionalidad
-      // de cambiar el lenguaje del sitio.
-      languageService: null,
-
       // Clase para lo relacionado con el menú de navegación del sitio
       siteNavService: null,
 
       // -- Language config
-
-      // Para elegir el idioma del sitio
+      // Idioma del sitio
       appLanguage: 'en',
+      // Para desplegar/replegar la lista de idiomas
+      showLangList: false,
 
       // -- Navbar menu
-
       // Secciones de la página, deben tener la siguiente nomenclatura:
       // section_<section_id>
       section_about: false,
@@ -117,79 +78,115 @@ createApp({
     }
   },
 
-  created() {
-    this.languageService = new LanguageService()
+  async created() {
+    const api = await fetch('./js/translation_dict.json')
+    this.translationDict = await api.json()
 
-    this.siteNavService = new SiteNavService(this.activateMenuOpt)
-    this.appSections = this.siteNavService.navSections
-    this.siteNavService.startNavbarIntersectionObserver()
+    this.siteNavService = new SiteNavService(this.watchSiteSections)
   },
 
-  mounted() {
+  async mounted() {
+    await new Promise(resolve => setTimeout(resolve, 100))
     this.siteNavService.startNavbarIntersectionObserver()
   },
 
   methods: {
-    // Class: LanguageService
-    setTranslationPoint: function (element) {
-      return this.languageService.setTranslationPoint(element, this.appLanguage)
-    },
-
-    setLanguage: function (lang) {
+    // Lang feat
+    /**
+     * - Cambia el idioma del sitio.
+     * - Además, reconoce la sección en la que está
+     *   llama a la sección que actualiza la posición
+     *   y tamaño de la barra del navbar para que se
+     *   ajuste debido a las nueva dimensiones por el
+     *   cambio de idioma.
+     * 
+     * @param {String} lang - Lenguage a cambiar (formato de 2 letras: es, en, etc)
+     */
+    setLanguage(lang) {
       this.appLanguage = lang
+
+      const sectionActive = document.querySelector('.top_bar__navbar_item--active')
+        .getAttribute('href')
+        .slice(1)
+      this.activateMenuOpt(sectionActive)
     },
 
-    toggleLanguageList: function () {
-      this.languageService.toggleLanguageList()
+    /**
+     * 
+     * - Esta función es para traducir la página según sea
+     *   el idioma escogido.
+     * 
+     * @param {String} element Nombre del elemento del diccionario
+     * @returns Devuelve el valor del elemento del diccionario según el idioma.
+     */
+    setTranslationPoint(element) {
+      if (!this.translationDict) return ''
+      return this.translationDict[element][this.appLanguage]
+    },
+  
+    /**
+     * - Hace toggle de las clases necesarias para
+     *   desplegar/replegar la lista de idiomas disponibles.
+     */
+    toggleLanguageList() {
+      this.showLangList = !this.showLangList
     },
 
-    // Class: SiteNavService
+    // IntersectionObserver and navbar site feat
     /**
      * 
      * - Esta función es el callback del objeto "IntersectionObserver", se 
      *   asegura de monitorizar cada cambio en el scroll y verifica cuando
      *   una de las entradas (objetos HTML monitorizados) está siendo intersectado
      *   según las reglas del observador.
-     * - Cuando un objeto está siendo intersectado, activa la clase necesaria
-     *   para que el item del navbar que corresponda a la sección en la
-     *   que se está, se active.
-     * - Además, mueve la barra del navbar a la posición del item activo,
-     *   y lo ajusta a su width.
+     * - Cuando un objeto está siendo intersectado, 
      * 
      * @param {Dict} entradas - Diccionario con los objetos HTML que el observador está monitorizando (y sus estados, es decir, si están intersectados o no).
      * @param {Object} observador - Objeto "IntersectionObserver".
      */
-    async activateMenuOpt(entradas, observador) {
+    watchSiteSections(entradas, observador) {
       for (const entrada of entradas) {
         if (entrada.isIntersecting) {
           const sectionId = entrada.target.getAttribute('id')
-          // Se les quita la clase active a todos los item, para luego
-          // agregarla al item activo.
-          this.section_about = false
-          this.section_skills = false
-          this.section_work = false
-    
-          const sectionName = `section_${sectionId}`
-          this[sectionName] = true
-      
-          // Se actualiza la posición y width de la línea para que se ajuste
-          // al nuevo elemento activo del navbar. Se esperan 100ms para que
-          // le de tiempo al DOM de renderizar el item activo del navbar menu y
-          // así poder tomar sus dimensiones y posición.
-          await new Promise(resolve => setTimeout(resolve, 100))
-
-          const menuOptToActive = document.querySelector(`a[href="#${sectionId}"]`)
-          const navBar = document.querySelector('.top_bar__navbar_line')
-          const navBarLinePosX = menuOptToActive.offsetLeft
-          const navBarLineWidth = menuOptToActive.offsetWidth
-      
-          navBar.style.left = `${navBarLinePosX}px`
-          navBar.style.width = `${navBarLineWidth}px`
+          this.activateMenuOpt(sectionId)
         }
       }
     },
 
-    // Methods
+    /**
+     * 
+     * - Activa las clases necesaria para que el item del navbar que
+     *   corresponda a la sección en la que se está, se active.
+     * - Además, mueve la barra del navbar a la posición del item activo,
+     *   y lo ajusta a su width.
+     * 
+     * @param {String} sectionId Id de la sección donde se está.
+     */
+    async activateMenuOpt(sectionId) {
+      // Se les quita la clase active a todos los item, para luego
+      // agregarla al item activo.
+      this.section_about = false
+      this.section_skills = false
+      this.section_work = false
+
+      const sectionName = `section_${sectionId}`
+      this[sectionName] = true
+  
+      // Se actualiza la posición y width de la línea para que se ajuste
+      // al nuevo elemento activo del navbar. Se esperan 100ms para que en
+      // responsive le de tiempo al DOM de renderizar el item activo del navbar
+      // menu y así poder tomar sus dimensiones y posición.
+      await new Promise(resolve => setTimeout(resolve, 100))
+
+      const menuOptToActive = document.querySelector(`a[href="#${sectionId}"]`)
+      const navBar = document.querySelector('.top_bar__navbar_line')
+      const navBarLinePosX = menuOptToActive.offsetLeft
+      const navBarLineWidth = menuOptToActive.offsetWidth
+  
+      navBar.style.left = `${navBarLinePosX}px`
+      navBar.style.width = `${navBarLineWidth}px`
+    },
+
     /**
      * - Activa/Desactiva las clases para mostrar el menú
      * 	 de navegación en responsive.

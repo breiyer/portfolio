@@ -32,7 +32,7 @@
         <div class="top_bar__language__container" @click="toggleLanguageList()">
           <em class="fa-solid fa-language top_bar__language_icon"></em>
           <em
-            :class="{ 'top_bar__language_icon--arrow_down': languageService.langList.active }"
+            :class="{ 'top_bar__language_icon--arrow_down': showLangList }"
             class="
               fa-solid fa-caret-up
               top_bar__language_icon
@@ -42,7 +42,7 @@
           </em>
 
           <ul
-            :class="{ 'top_bar__language_list--active': languageService.langList.active }"
+            :class="{ 'top_bar__language_list--active': showLangList }"
             class="top_bar__language_list"
           >
             <li class="top_bar__language_opt" @click="setLanguage('en')">
@@ -62,7 +62,7 @@
         :class="{ 'top_bar__contact--reveal': !section_about }"
         class="top_bar__contact"
       >
-        <small class="top_bar__contact_label">{{ setTranslationPoint('test') }}</small>
+        <small class="top_bar__contact_label">{{ setTranslationPoint('contact_label') }}</small>
 
         <a
           class="top_bar__contact_link top_bar__contact_link--github"
@@ -113,7 +113,9 @@
             @click="watchNavBarItemClick()"
           >
             <span class="top_bar__navbar_item_left">01.</span>
-            <span class="top_bar__navbar_item_right">About</span>
+            <span class="top_bar__navbar_item_right">
+              {{ setTranslationPoint('nav_item_1') }}
+            </span>
           </a>
 
           <a
@@ -124,7 +126,9 @@
             @click="watchNavBarItemClick()"
           >
             <span class="top_bar__navbar_item_left">02.</span>
-            <span class="top_bar__navbar_item_right">Skills</span>
+            <span class="top_bar__navbar_item_right">
+              {{ setTranslationPoint('nav_item_2') }}
+            </span>
           </a>
 
           <a
@@ -135,7 +139,9 @@
             @click="watchNavBarItemClick()"
           >
             <span class="top_bar__navbar_item_left">03.</span>
-            <span class="top_bar__navbar_item_right">Work</span>
+            <span class="top_bar__navbar_item_right">
+              {{ setTranslationPoint('nav_item_3') }}
+            </span>
           </a>
         </ul>
 
@@ -187,34 +193,40 @@
             <em class="fa-solid fa-square-envelope fa-fw fa-lg"></em>
           </a>
 
-          <small class="about__contact_label">I'm here</small>
+          <small
+            :class="`about__contact_label--${appLanguage}`"
+            class="about__contact_label"
+          >
+            {{ setTranslationPoint('contact_label') }}
+          </small>
         </div>
       </section>
 
       <section class="about__about_me_container">
         <div class="about__about_me_hi fancy_title">
-          Hi <br>
-          I'm A <br>
-          Full Stack <br>
-          Web Developer
+          {{ setTranslationPoint('about_me_hi_1') }} <br>
+          {{ setTranslationPoint('about_me_hi_2') }} <br>
+          {{ setTranslationPoint('about_me_hi_3') }} <br>
+          {{ setTranslationPoint('about_me_hi_4') }}
         </div>
         
         <div class="about__about_me_info">
-          My name is <strong>Breiyer Corpas Amaya</strong>,
-          i am from Colombia. You can find my curriculum here
+          {{ setTranslationPoint('about_me_info_1') }} <strong>Breiyer Corpas Amaya</strong>,
+          {{ setTranslationPoint('about_me_info_2') }}
+          {{ setTranslationPoint('about_me_info_3') }}
           (<a
             class="about__about_me_info__download"
-            href="HV - Breiyer Corpas Amaya.pdf"
+            :href="`HV - Breiyer Corpas Amaya (${appLanguage}).pdf`"
             target="_blank"
             rel="noopener noreferrer"
             >
-            Download <em class="fa-solid fa-file-pdf fa-lg"></em>
+            {{ setTranslationPoint('about_me_info_4') }} <em class="fa-solid fa-file-pdf fa-lg"></em>
           </a>).
-          I have been working for more than three years in web development projects,
-          and I have achieved the title of systems engineer.
-          Remember,
+          {{ setTranslationPoint('about_me_info_5') }}
+          {{ setTranslationPoint('about_me_info_6') }}
+          {{ setTranslationPoint('about_me_info_7') }}
           <strong class="about__about_me_info__leyend fancy_color">
-          I can build any design you can imagine</strong>.
+          {{ setTranslationPoint('about_me_info_8') }}</strong>.
         </div>
       </section>
 

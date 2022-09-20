@@ -1,0 +1,52 @@
+{
+  "contact_label": {
+    "es": "Contáctame", "en": "I'm here"
+  },
+  "nav_item_1": {
+    "es": "Conóceme", "en": "About"
+  },
+  "nav_item_2": {
+    "es": "Habilidades", "en": "Skills"
+  },
+  "nav_item_3": {
+    "es": "Proyectos", "en": "Work"
+  },
+
+  "about_me_hi_1": {
+    "es": "Hola", "en": "Hi"
+  },
+  "about_me_hi_2": {
+    "es": "Soy un", "en": "I'm A"
+  },
+  "about_me_hi_3": {
+    "es": "Dev Web", "en": "Full Stack"
+  },
+  "about_me_hi_4": {
+    "es": "Full Stack", "en": "Web Developer"
+  },
+
+  "about_me_info_1": {
+    "es": "Me llamo", "en": "My name is"
+  },
+  "about_me_info_2": {
+    "es": "Soy de Colombia.", "en": "i am from Colombia."
+  },
+  "about_me_info_3": {
+    "es": "Puedes ver mi curriculum aquí ", "en": "You can find my curriculum here "
+  },
+  "about_me_info_4": {
+    "es": "Descargar", "en": "Download"
+  },
+  "about_me_info_5": {
+    "es": "He participado durante más de 3 años en proyectos de desarrollo web.", "en": "I have been working for more than three years in web development projects."
+  },
+  "about_me_info_6": {
+    "es": "He conseguido el título de Ing. De Sistemas.", "en": "I have achieved the title of systems engineer."
+  },
+  "about_me_info_7": {
+    "es": "Y recuerda,", "en": "And remember,"
+  },
+  "about_me_info_8": {
+    "es": "Puedo construir cualquier diseño que puedas imaginar", "en": "I can build any design you can imagine"
+  }
+}

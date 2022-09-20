@@ -53,6 +53,16 @@
   font-size: 1rem;
   color: white;
 }
+/* Según el idioma */
+.about__contact_label--en {
+  left: -0.65rem;
+  top: calc(100% + 1.5rem);
+}
+.about__contact_label--es {
+  left: -1.55rem;
+  top: calc(100% + 2.5rem);
+}
+
 .about__contact_label::before {
   content: "";
   position: absolute;
@@ -91,9 +101,16 @@
 
   /* El label */
   .about__contact_label {
+    font-size: 1.2rem;
+  }
+  /* Según el idioma */
+  .about__contact_label--en {
     left: -0.55rem;
     top: calc(100% + 2rem);
-    font-size: 1.2rem;
+  }
+  .about__contact_label--es {
+    left: -1.68rem;
+    top: calc(100% + 3.3rem);
   }
   .about__contact_label::before {
     content: "";
