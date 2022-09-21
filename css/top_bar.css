@@ -1,0 +1,32 @@
+.top_bar {
+  width: 100%;
+  display: grid;
+  grid-template-columns: max-content max-content 1fr;
+  grid-template-rows: 1fr;
+  gap: 1rem;
+  box-shadow: 3px 0 2px rgba(0, 0, 0, 0.5);
+  background-color: var(--color3);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--zI_nav_bar);
+}
+
+/* Responsive */
+@media screen and (max-width: 1200px) {
+}
+
+@media screen and (max-width: 900px) {
+}
+
+@media screen and (max-width: 700px) {
+  .top_bar {
+    grid-template-columns: max-content 1fr;
+  }
+}
+
+@media screen and (max-width: 500px) {
+}
+
+@media screen and (max-width: 400px) {
+}
