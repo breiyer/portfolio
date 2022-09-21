@@ -1,0 +1,115 @@
+.top_bar__contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+/* Mientras la sección de contactar deba estar oculta, este pseudo
+elemento la cubre para que no se vea y no se pueda interactuar con ella */
+.top_bar__contact::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  cursor: default;
+  background-color: var(--color3);
+}
+
+/* Cuando se revele la sección de contactar */
+.top_bar__contact--reveal {
+  animation: appear_from_left 1.3s 1;
+}
+.top_bar__contact--reveal::after {
+  display: none;
+}
+
+/* Los links */
+.top_bar__contact_link {
+  font-size: 1.2rem;
+  transform: scale(1);
+  transition: transform 0.2s ease-out;
+}
+.top_bar__contact_link:hover {
+  transform: scale(1.2);
+}
+.top_bar__contact_link--github {
+  color: white;
+}
+.top_bar__contact_link--linkedin {
+  color: rgb(10, 99, 188);
+}
+.top_bar__contact_link--mail {
+  color: rgb(188, 10, 10);
+}
+
+/* El label */
+.top_bar__contact_label {
+  width: max-content;
+  position: relative;
+  font-size: 1rem;
+  color: white;
+}
+
+/* Responsive */
+@media screen and (max-width: 1200px) {
+}
+
+@media screen and (max-width: 900px) {
+}
+
+@media screen and (max-width: 700px) {
+  .top_bar__contact {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--color3);
+    padding: 0.3rem;
+    display: none;
+  }
+
+  /* Ya no será necesario el pseudo elemento para ocultar
+  la parte del contactar */
+  .top_bar__contact::after {
+    display: none;
+  }
+
+  /* Ahora se revela todo el conetendor */
+  .top_bar__contact--reveal {
+    display: flex;
+  }
+
+  /* Los links */
+  .top_bar__contact_link {
+    font-size: 1.4rem;
+  }
+
+  /* El label */
+  .top_bar__contact_label {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .top_bar__contact {
+    padding: 0.5rem;
+  }
+
+  /* Los links */
+  .top_bar__contact_link {
+    font-size: 1.6rem;
+  }
+
+  /* El label */
+  .top_bar__contact_label {
+    font-size: 1.4rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+}
+
+@media screen and (max-width: 400px) {
+}

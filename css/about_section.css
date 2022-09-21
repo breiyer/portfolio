@@ -1,0 +1,38 @@
+/* El contenedor de toda la sección de About */
+.p_sections--about {
+  display: grid;
+  grid-template-columns: max-content max-content 1fr;
+  grid-template-rows: 1fr;
+}
+
+/* Responsive */
+@media screen and (max-width: 1100px) {
+  .p_sections--about {
+    display: grid;
+    grid-template-areas: 
+                "about__profile_picture about__profile_picture"
+                "about__contact about__about_me";
+    grid-template-columns: max-content 1fr;
+    grid-template-rows: max-content max-content;
+    padding-top: 5rem;
+    gap: 0.5rem;
+  }
+}
+
+@media screen and (max-width: 900px) {
+}
+
+@media screen and (max-width: 700px) {
+  .p_sections--about {
+    padding-top: 6.5rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .p_sections--about {
+    padding-top: 7rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+}

@@ -8,6 +8,9 @@
   list-style: none;
   text-decoration: none;
   outline: none;
+  border: none;
+  font-weight: normal;
+  scroll-behavior: smooth;
 }
 
 html, body {
@@ -18,22 +21,123 @@ html, body {
   overflow: hidden;
 }
 
-:root {
-  /* Colores */
-  --color1: rgb(255, 78, 80);
-  --color2: rgb(252, 145, 58);
-  --color3: rgb(205, 179, 128);
-
-  /* Z-index */
-  --animatedBg: 100;
-  --pageContainer: 200;
-}
-
-.title {
-  font-family: 'Rubik Dirt', cursive;
-}
-
 .container {
   width: 100%;
   height: 100%;
+  max-width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: var(--color4);
+}
+
+:root {
+  /* Colores */
+  --color1: rgb(255, 165, 0);
+  --color2: rgb(238, 105, 131);
+  --color3: rgb(25, 25, 25);
+  --color4: rgb(46, 46, 46);
+  --color_inactive: rgba(92, 89, 89, 1);
+
+  /* Z-Index */
+  --zI_nav_bar: 100;
+  --zI_popups: 500;
+  --zI_full_screen_containers: 600;
+  --zI_full_screen_elements: 700;
+}
+
+.fancy_title {
+  font-family: 'Rubik Dirt', cursive;
+}
+
+.fancy_color {
+  color: var(--color2);
+  background: -webkit-linear-gradient(45deg, var(--color1) 30%, var(--color2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.my_photo {
+  width: var(--photo_size);
+  height: var(--photo_size);
+  background-image: url('../img/BreiyerCorpasAmaya.jpg');
+  border-radius: 1000px;
+  background-size: cover;
+  background-position: top center;
+}
+
+/* Animaciones */
+.appear_from_left {
+  animation: appear_from_left 1.3s 1;
+}
+@keyframes appear_from_left {
+  0%{
+    transform: translate(-3rem, 0);
+    opacity: 0;
+  }
+  100%{
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+
+.appear_from_bottom {
+  animation: appear_from_bottom 1.3s 1;
+}
+@keyframes appear_from_bottom{
+  0%{
+    transform: translate(0, 3rem);
+    opacity: 0;
+  }
+  100%{
+      transform: translate(0, 0);
+      opacity: 1;
+  }
+}
+
+.just_appear {
+  animation: just_appear 1.3s 1;
+}
+@keyframes just_appear {
+  0%{
+      opacity: 0;
+      transform: scale(.8);
+  }
+  100%{
+      opacity: 1;
+      transform: scale(1);
+  }
+}
+
+/*Para el scroll*/
+
+/* Tamaño del scroll */
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+ /* Estilos barra (thumb) de scroll */
+*::-webkit-scrollbar-thumb {
+  background: gray;
+  /* border-radius: 4px; */
+}
+
+*::-webkit-scrollbar-thumb:active {
+  background-color: #999999;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: #b3b3b3;
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+ /* Estilos track de scroll */
+*::-webkit-scrollbar-track {
+  background: #dddddd;
+  /* border-radius: 5px; */
+}
+
+*::-webkit-scrollbar-track:hover, 
+*::-webkit-scrollbar-track:active {
+  background: #d4d4d4;
 }
