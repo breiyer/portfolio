@@ -65,6 +65,7 @@ createApp({
       appLanguage: 'en',
       // Para desplegar/replegar la lista de idiomas
       showLangList: false,
+      translationDict: { empty: true },
 
       // -- Navbar menu
       // Secciones de la página, deben tener la siguiente nomenclatura:
@@ -80,13 +81,11 @@ createApp({
 
   async created() {
     const api = await fetch('./js/translation_dict.json')
-    this.translationDict = await api.json()
-
-    this.siteNavService = new SiteNavService(this.watchSiteSections)
+    this.translationDict = { ...await api.json(), empty: false }
   },
 
   async mounted() {
-    await new Promise(resolve => setTimeout(resolve, 100))
+    this.siteNavService = new SiteNavService(this.watchSiteSections)
     this.siteNavService.startNavbarIntersectionObserver()
   },
 
@@ -120,7 +119,7 @@ createApp({
      * @returns Devuelve el valor del elemento del diccionario según el idioma.
      */
     setTranslationPoint(element) {
-      if (!this.translationDict) return ''
+      if (this.translationDict.empty) return ''
       return this.translationDict[element][this.appLanguage]
     },
   
