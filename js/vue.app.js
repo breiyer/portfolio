@@ -65,7 +65,14 @@ createApp({
       appLanguage: 'en',
       // Para desplegar/replegar la lista de idiomas
       showLangList: false,
+      // Diccionario con los textos en sus diferentes idiomas
+      // para traducir la página.
       translationDict: { empty: true },
+      // Array para la lista plegable de idiomas
+      langList: {
+        es: { code: 'es', label: 'Español', icon: 'es_flag.svg', alt: 'Spain Flag' },
+        en: { code: 'en', label: 'English', icon: 'en_flag.svg', alt: 'EEUU Flag' },
+      },
 
       // -- Navbar menu
       // Secciones de la página, deben tener la siguiente nomenclatura:
@@ -102,12 +109,19 @@ createApp({
      * @param {String} lang - Lenguage a cambiar (formato de 2 letras: es, en, etc)
      */
     setLanguage(lang) {
+      // Se traduce el idioma del sitio al especificado
       this.appLanguage = lang
 
+      // Se toma el item del navbar menu que está activo, y se llama al método que
+      // activa el item activo, ya que al traducir el texto de las opciones del menú,
+      // estos cambian de longitud y se descuadra todo.
       const sectionActive = document.querySelector('.top_bar__navbar_item--active')
         .getAttribute('href')
         .slice(1)
       this.activateMenuOpt(sectionActive)
+
+      // Se cambia el idioma del sitio
+      document.documentElement.setAttribute('lang', this.appLanguage)
     },
 
     /**

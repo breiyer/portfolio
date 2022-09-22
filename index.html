@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -46,13 +46,9 @@
             :class="{ 'top_bar__language_list--active': showLangList }"
             class="top_bar__language_list"
           >
-            <li class="top_bar__language_opt" @click="setLanguage('en')">
-              English
-              <img src="img/US.svg" class="top_bar__language_opt_flag" alt="EEUU Flag">
-            </li>
-            <li class="top_bar__language_opt" @click="setLanguage('es')">
-              Español
-              <img src="img/ES.svg" class="top_bar__language_opt_flag" alt="Spain Flag">
+            <li v-for="lang in langList" class="top_bar__language_opt" @click="setLanguage(lang.code)">
+              {{ lang.label }}
+              <img :src="`img/${lang.icon}`" class="top_bar__language_opt_flag" :alt="lang.alt">
             </li>
           </ul>
         </div>
