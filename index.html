@@ -61,7 +61,7 @@
 
       <!-- La parte de contactar -->
       <section
-        :class="{ 'top_bar__contact--reveal': !section_about }"
+        :class="{ 'top_bar__contact--reveal': !this.navbarSections.about.active }"
         class="top_bar__contact"
       >
         <small class="top_bar__contact_label">
@@ -92,41 +92,17 @@
           <div class="top_bar__navbar_line"></div>
 
           <a
-            :class="{ 'top_bar__navbar_item--active': section_about }"
+            v-for="section in navbarSections"
+            :key="section.id"
+            :class="{ 'top_bar__navbar_item--active': section.active }"
             class="top_bar__navbar_item"
             title="Ir"
-            href="#about"
+            :href="`#${section.id}`"
             @click="watchNavBarItemClick()"
           >
-            <span class="top_bar__navbar_item_left">01.</span>
+            <span class="top_bar__navbar_item_left">{{ section.num }}.</span>
             <span class="top_bar__navbar_item_right">
-              {{ setTranslationPoint('nav_item_1') }}
-            </span>
-          </a>
-
-          <a
-            :class="{ 'top_bar__navbar_item--active': section_skills }"
-            class="top_bar__navbar_item"
-            title="Ir"
-            href="#skills"
-            @click="watchNavBarItemClick()"
-          >
-            <span class="top_bar__navbar_item_left">02.</span>
-            <span class="top_bar__navbar_item_right">
-              {{ setTranslationPoint('nav_item_2') }}
-            </span>
-          </a>
-
-          <a
-            :class="{ 'top_bar__navbar_item--active': section_work }"
-            class="top_bar__navbar_item"
-            title="Ir"
-            href="#work"
-            @click="watchNavBarItemClick()"
-          >
-            <span class="top_bar__navbar_item_left">03.</span>
-            <span class="top_bar__navbar_item_right">
-              {{ setTranslationPoint('nav_item_3') }}
+              {{ setTranslationPoint(`navbar_sections_${section.id}`) }}
             </span>
           </a>
         </ul>

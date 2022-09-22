@@ -97,11 +97,12 @@ createApp({
       ],
 
       // -- Navbar menu
-      // Secciones de la página, deben tener la siguiente nomenclatura:
-      // section_<section_id>
-      section_about: false,
-      section_skills: false,
-      section_work: false,
+      // Secciones de la página
+      navbarSections: {
+        about: { id: 'about', num: '01', active: false },
+        skills: { id: 'skills', num: '02', active: false },
+        work: { id: 'work', num: '03', active: false },
+      },
 
       // Para mostrar o no el navbar menu cuando está en responsive
       showResponsiveNavBarMenu: false,
@@ -203,12 +204,10 @@ createApp({
     async activateMenuOpt(sectionId) {
       // Se les quita la clase active a todos los item, para luego
       // agregarla al item activo.
-      this.section_about = false
-      this.section_skills = false
-      this.section_work = false
-
-      const sectionName = `section_${sectionId}`
-      this[sectionName] = true
+      for (const section of Object.keys(this.navbarSections)) {
+        this.navbarSections[section].active = false
+      }
+      this.navbarSections[sectionId].active = true
   
       // Se actualiza la posición y width de la línea para que se ajuste
       // al nuevo elemento activo del navbar. Se esperan 100ms para que en
