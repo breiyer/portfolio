@@ -46,7 +46,12 @@
             :class="{ 'top_bar__language_list--active': showLangList }"
             class="top_bar__language_list"
           >
-            <li v-for="lang in langList" class="top_bar__language_opt" @click="setLanguage(lang.code)">
+            <li
+              v-for="lang in langList"
+              :key="lang.code"
+              class="top_bar__language_opt"
+              @click="setLanguage(lang.code)"
+            >
               {{ lang.label }}
               <img :src="`img/${lang.icon}`" class="top_bar__language_opt_flag" :alt="lang.alt">
             </li>
@@ -59,36 +64,20 @@
         :class="{ 'top_bar__contact--reveal': !section_about }"
         class="top_bar__contact"
       >
-        <small class="top_bar__contact_label">{{ setTranslationPoint('contact_label') }}</small>
+        <small class="top_bar__contact_label">
+          {{ setTranslationPoint('contact_label') }}
+        </small>
 
         <a
-          class="top_bar__contact_link top_bar__contact_link--github"
-          href="https://github.com/breiyer"
+          v-for="cLink in contactLinks"
+          :key="`2${cLink.name}`"
+          :class="`top_bar__contact_link top_bar__contact_link--${cLink.name}`"
+          :href="cLink.href"
           target="_blank"
           rel="noopener noreferrer"
-          title="Visitar perfil"
+          :title="cLink.title"
         >
-          <em class="fa-brands fa-square-github fa-fw fa-lg"></em>
-        </a>
-
-        <a
-          class="top_bar__contact_link top_bar__contact_link--linkedin"
-          href="https://www.linkedin.com/in/breiyer-corpas-amaya-97a1531b9/"
-          target="_blank"
-          rel="noopener noreferrer"
-          title="Visitar perfil"
-          >
-          <em class="fa-brands fa-linkedin fa-fw fa-lg"></em>
-        </a>
-
-        <a
-          class="top_bar__contact_link top_bar__contact_link--mail"
-          href="mailto:breiyer@gmail.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          title="Enviar correo"
-          >
-          <em class="fa-solid fa-square-envelope fa-fw fa-lg"></em>
+          <em :class="`${cLink.fwIcon} fa-fw fa-lg`"></em>
         </a>
       </section>
 
@@ -161,33 +150,15 @@
       <section class="about__contact">
         <div class="about__contact_container">
           <a
-            class="about__contact_link about__contact_link--github"
-            href="https://github.com/breiyer"
+            v-for="cLink in contactLinks"
+            :key="`2${cLink.name}`"
+            :class="`about__contact_link about__contact_link--${cLink.name}`"
+            :href="cLink.href"
             target="_blank"
             rel="noopener noreferrer"
-            title="Visitar perfil"
+            :title="cLink.title"
           >
-            <em class="fa-brands fa-square-github fa-fw fa-lg"></em>
-          </a>
-
-          <a
-            class="about__contact_link about__contact_link--linkedin"
-            href="https://www.linkedin.com/in/breiyer-corpas-amaya-97a1531b9/"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="Visitar perfil"
-            >
-            <em class="fa-brands fa-linkedin fa-fw fa-lg"></em>
-          </a>
-
-          <a
-            class="about__contact_link about__contact_link--mail"
-            href="mailto:breiyer@gmail.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="Enviar correo"
-            >
-            <em class="fa-solid fa-square-envelope fa-fw fa-lg"></em>
+            <em :class="`${cLink.fwIcon} fa-fw fa-lg`"></em>
           </a>
 
           <small

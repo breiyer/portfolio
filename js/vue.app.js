@@ -74,6 +74,28 @@ createApp({
         en: { code: 'en', label: 'English', icon: 'en_flag.svg', alt: 'EEUU Flag' },
       },
 
+      // -- Contact list
+      contactLinks: [
+        {
+          name: 'github',
+          href: 'https://github.com/breiyer',
+          title: 'Visitar perfil',
+          fwIcon: 'fa-brands fa-square-github',
+        },
+        {
+          name: 'linkedin',
+          href: 'https://www.linkedin.com/in/breiyer-corpas-amaya-97a1531b9/',
+          title: 'Visitar perfil',
+          fwIcon: 'fa-brands fa-linkedin',
+        },
+        {
+          name: 'mail',
+          href: 'mailto:breiyer@gmail.com',
+          title: 'Enviar correo',
+          fwIcon: 'fa-solid fa-square-envelope',
+        },
+      ],
+
       // -- Navbar menu
       // Secciones de la página, deben tener la siguiente nomenclatura:
       // section_<section_id>
@@ -83,6 +105,9 @@ createApp({
 
       // Para mostrar o no el navbar menu cuando está en responsive
       showResponsiveNavBarMenu: false,
+  
+      // -- Generación de id únicos
+      idCount: 0,
     }
   },
 
@@ -216,6 +241,6 @@ createApp({
      */
     watchNavBarItemClick() {
       if (this.showResponsiveNavBarMenu) this.toggleResponsiveNavBar()
-    }
+    },
   }
 }).mount('#app')
