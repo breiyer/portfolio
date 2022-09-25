@@ -1,0 +1,63 @@
+/* Botón de hamburguesa */
+.toggle_btn {
+  --toggle_btn_size: 3rem;
+  width: var(--toggle_btn_size);
+  height: var(--toggle_btn_size);
+  background-color: var(--color1);
+  border-radius: 50%;
+  position: relative;
+  box-shadow: inset -.3rem -.3rem 12px rgba(0, 0, 0, .1),
+  inset .7rem .7rem 12px rgba(255, 255, 255, .15);
+  align-self: center;
+}
+.toggle_btn:hover {
+  cursor: pointer;
+}
+.toggle_btn::before {
+  content: "";
+  width: 80%;
+  height: 80%;
+  background-color: var(--color1);
+  border-radius: 50%;
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  box-shadow: inset .3rem .3rem 12px rgba(0, 0, 0, .1),
+  inset -.7rem -.7rem 12px rgba(255, 255, 255, .15);
+}
+
+.toggle_btn__bar {
+  width: 50%;
+  height: 8%;
+  background-color: white;
+  position: absolute;
+  left: 25%;
+  border-radius: 1000px;
+  transition: all .4s;
+}
+
+.toggle_btn__bar--bar1 {
+  top: 29%;
+}
+.toggle_btn__bar--bar2 {
+  top: 46%;
+  opacity: 1;
+}
+.toggle_btn__bar--bar3 {
+  top: 63%;
+}
+
+/* Cuando se active el botón de hamburguesa */
+.toggle_btn--active .toggle_btn__bar--bar1 {
+  transform: rotate(45deg);
+  top: 47%;
+}
+
+.toggle_btn--active .toggle_btn__bar--bar2 {
+  opacity: 0;
+}
+
+.toggle_btn--active .toggle_btn__bar--bar3 {
+  transform: rotate(-45deg);
+  top: 47%;
+}

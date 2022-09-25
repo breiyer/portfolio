@@ -2,13 +2,13 @@
   "contact_label": {
     "es": "Contáctame", "en": "I'm here"
   },
-  "nav_item_1": {
+  "navbar_sections_about": {
     "es": "Conóceme", "en": "About"
   },
-  "nav_item_2": {
+  "navbar_sections_skills": {
     "es": "Habilidades", "en": "Skills"
   },
-  "nav_item_3": {
+  "navbar_sections_work": {
     "es": "Proyectos", "en": "Work"
   },
 

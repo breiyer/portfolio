@@ -1,0 +1,36 @@
+/* Los links */
+.icon_link {
+  color: var(--color_inactive);
+  transition-property: color, transform;
+  transition-duration: 0.5s;
+  transition-timing-function: ease;
+}
+.icon_link:hover {
+  color: var(--hover_color);
+  transform: scale(0.9);
+}
+
+/* Tamaños */
+.icon_link--md {
+  font-size: 1.2rem;
+}
+.icon_link--lg {
+  font-size: 1.5rem;
+}
+
+@media screen and (max-width: 700px) {
+  /* Tamaños */
+  .icon_link--md {
+    font-size: 1.4rem;
+  }
+  .icon_link--lg {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  /* Tamaños */
+  .icon_link--md {
+    font-size: 1.6rem;
+  }
+}
