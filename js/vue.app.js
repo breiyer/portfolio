@@ -56,6 +56,7 @@ const { createApp } = Vue
 const vueApp = createApp({
   components: {
     DropDown: DropDown,
+    IconLink: IconLink,
   },
   data() {
     return {
@@ -79,19 +80,19 @@ const vueApp = createApp({
       // -- Contact list
       contactLinks: [
         {
-          name: 'github',
+          hoverColor: 'white',
           href: 'https://github.com/breiyer',
           title: 'Visitar perfil',
           fwIcon: 'fa-brands fa-square-github',
         },
         {
-          name: 'linkedin',
+          hoverColor: 'rgb(10, 99, 188)',
           href: 'https://www.linkedin.com/in/breiyer-corpas-amaya-97a1531b9/',
           title: 'Visitar perfil',
           fwIcon: 'fa-brands fa-linkedin',
         },
         {
-          name: 'mail',
+          hoverColor: 'rgb(188, 10, 10)',
           href: 'mailto:breiyer@gmail.com',
           title: 'Enviar correo',
           fwIcon: 'fa-solid fa-square-envelope',

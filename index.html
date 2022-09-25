@@ -18,6 +18,8 @@
   <link rel="stylesheet" type="text/css" href="css/about_section__about_me.css">
   <link rel="stylesheet" type="text/css" href="css/about_section__profile_picture.css">
   <link rel="stylesheet" type="text/css" href="css/components/drop_down.css">
+  <link rel="stylesheet" type="text/css" href="css/components/icon_link.css">
+
 
   <script src="https://kit.fontawesome.com/3ae0f4e5e7.js" crossorigin="anonymous"></script>
   <script src="js/vue.js"></script>
@@ -51,17 +53,16 @@
           {{ setTranslationPoint('contact_label') }}
         </small>
 
-        <a
+        <icon-link
           v-for="cLink in contactLinks"
-          :key="`2${cLink.name}`"
-          :class="`top_bar__contact_link top_bar__contact_link--${cLink.name}`"
-          :href="cLink.href"
-          target="_blank"
-          rel="noopener noreferrer"
-          :title="cLink.title"
+          :key="`2${cLink.fwIcon}`"
+          :hover-color="cLink.hoverColor"
+          :fw-icon="cLink.fwIcon"
+          :link-url="cLink.href"
+          :link-title="cLink.title"
+          md
         >
-          <em :class="`${cLink.fwIcon} fa-fw fa-lg`"></em>
-        </a>
+        </icon-link>
       </section>
 
       <!-- El navbar -->
@@ -108,17 +109,16 @@
     <div class="p_sections p_sections--about" id="about" i_watcher>
       <section class="about__contact">
         <div class="about__contact_container">
-          <a
+          <icon-link
             v-for="cLink in contactLinks"
-            :key="`2${cLink.name}`"
-            :class="`about__contact_link about__contact_link--${cLink.name}`"
-            :href="cLink.href"
-            target="_blank"
-            rel="noopener noreferrer"
-            :title="cLink.title"
+            :key="`2${cLink.fwIcon}`"
+            :hover-color="cLink.hoverColor"
+            :fw-icon="cLink.fwIcon"
+            :link-url="cLink.href"
+            :link-title="cLink.title"
+            lg
           >
-            <em :class="`${cLink.fwIcon} fa-fw fa-lg`"></em>
-          </a>
+          </icon-link>
 
           <small
             :class="`about__contact_label--${appLanguage}`"
@@ -169,5 +169,6 @@
 </body>
 
 <script src="js/components/DropDown.js"></script>
+<script src="js/components/IconLink.js"></script>
 <script src="js/vue.app.js"></script>
 </html>
