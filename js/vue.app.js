@@ -57,6 +57,7 @@ const vueApp = createApp({
   components: {
     DropDown: DropDown,
     IconLink: IconLink,
+    ToggleBtn: ToggleBtn,
   },
   data() {
     return {
