@@ -10,7 +10,6 @@
   <link rel="stylesheet" type="text/css" href="css/base.css">
   <link rel="stylesheet" type="text/css" href="css/normalize.css">
   <link rel="stylesheet" type="text/css" href="css/top_bar.css">
-  <link rel="stylesheet" type="text/css" href="css/top_bar__language.css">
   <link rel="stylesheet" type="text/css" href="css/top_bar__contact.css">
   <link rel="stylesheet" type="text/css" href="css/top_bar__navbar.css">
   <link rel="stylesheet" type="text/css" href="css/portfolio_sections.css">
@@ -18,6 +17,7 @@
   <link rel="stylesheet" type="text/css" href="css/about_section__contact.css">
   <link rel="stylesheet" type="text/css" href="css/about_section__about_me.css">
   <link rel="stylesheet" type="text/css" href="css/about_section__profile_picture.css">
+  <link rel="stylesheet" type="text/css" href="css/components/drop_down.css">
 
   <script src="https://kit.fontawesome.com/3ae0f4e5e7.js" crossorigin="anonymous"></script>
   <script src="js/vue.js"></script>
@@ -29,35 +29,18 @@
     <nav class="top_bar">
 
       <!-- El plegable para cambiar idioma -->
-      <section class="top_bar__language" id="top_bar__language">
-        <div class="top_bar__language__container" @click="toggleLanguageList()">
-          <em class="fa-solid fa-language top_bar__language_icon"></em>
-          <em
-            :class="{ 'top_bar__language_icon--arrow_down': showLangList }"
-            class="
-              fa-solid fa-caret-up
-              top_bar__language_icon
-              top_bar__language_icon--arrow
-            "
-          >
-          </em>
-
-          <ul
-            :class="{ 'top_bar__language_list--active': showLangList }"
-            class="top_bar__language_list"
-          >
-            <li
-              v-for="lang in langList"
-              :key="lang.code"
-              class="top_bar__language_opt"
-              @click="setLanguage(lang.code)"
-            >
-              {{ lang.label }}
-              <img :src="`img/${lang.icon}`" class="top_bar__language_opt_flag" :alt="lang.alt">
-            </li>
-          </ul>
-        </div>
-      </section>
+      <drop-down
+        :show-list="showLangList"
+        :list-opts="langList"
+        fw-icon="fa-solid fa-language"
+        @toggle_list="toggleLanguageList"
+        @opt_clicked="setLanguage"
+      >
+        <template #label="{ opt }">
+          {{ opt.label }}
+          <img :src="`img/${opt.icon}`" class="dropdown_opt_flag" :alt="opt.alt">
+        </template>
+      </drop-down>
 
       <!-- La parte de contactar -->
       <section
@@ -185,5 +168,6 @@
   </div>
 </body>
 
+<script src="js/components/DropDown.js"></script>
 <script src="js/vue.app.js"></script>
 </html>

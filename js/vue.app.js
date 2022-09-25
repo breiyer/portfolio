@@ -1,7 +1,7 @@
 class SiteNavService {
 
   constructor(callBack) {
-  
+
     /**
      * - El IntersectionObserver se encarga de monitorizar si dicho 
      *   objeto HTML al que observa se encuentra a cierta distancia de 
@@ -53,8 +53,10 @@ class SiteNavService {
 }
 
 const { createApp } = Vue
-createApp({
-
+const vueApp = createApp({
+  components: {
+    DropDown: DropDown,
+  },
   data() {
     return {
       // Clase para lo relacionado con el menú de navegación del sitio
@@ -106,7 +108,7 @@ createApp({
 
       // Para mostrar o no el navbar menu cuando está en responsive
       showResponsiveNavBarMenu: false,
-  
+
       // -- Generación de id únicos
       idCount: 0,
     }
@@ -136,7 +138,7 @@ createApp({
      */
     setLanguage(lang) {
       // Se traduce el idioma del sitio al especificado
-      this.appLanguage = lang
+      this.appLanguage = lang.code
 
       // Se toma el item del navbar menu que está activo, y se llama al método que
       // activa el item activo, ya que al traducir el texto de las opciones del menú,
@@ -162,7 +164,7 @@ createApp({
       if (this.translationDict.empty) return ''
       return this.translationDict[element][this.appLanguage]
     },
-  
+
     /**
      * - Hace toggle de las clases necesarias para
      *   desplegar/replegar la lista de idiomas disponibles.
@@ -208,7 +210,7 @@ createApp({
         this.navbarSections[section].active = false
       }
       this.navbarSections[sectionId].active = true
-  
+
       // Se actualiza la posición y width de la línea para que se ajuste
       // al nuevo elemento activo del navbar. Se esperan 100ms para que en
       // responsive le de tiempo al DOM de renderizar el item activo del navbar
@@ -219,7 +221,7 @@ createApp({
       const navBar = document.querySelector('.top_bar__navbar_line')
       const navBarLinePosX = menuOptToActive.offsetLeft
       const navBarLineWidth = menuOptToActive.offsetWidth
-  
+
       navBar.style.left = `${navBarLinePosX}px`
       navBar.style.width = `${navBarLineWidth}px`
     },

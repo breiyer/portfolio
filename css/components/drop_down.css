@@ -1,12 +1,5 @@
-/* La sección del idioma */
-.top_bar__language {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
-
 /* El contenedor del botón para cambiar de idioma */
-.top_bar__language__container {
+.dropdown__container {
   padding: 0.3rem 0.9rem;
   position: relative;
   display: flex;
@@ -17,22 +10,22 @@
 }
 
 /* Los iconos del botón para cambiar de idioma */
-.top_bar__language_icon {
+.dropdown_icon {
   font-size: 1.6rem;
   color: white;
 }
 
 /* El icono de flecha */
-.top_bar__language_icon--arrow {
+.dropdown_icon--arrow {
   font-size: 1.2rem;
   transition: transform 0.4s linear;
 }
-.top_bar__language_icon--arrow_down {
+.dropdown_icon--arrow_down {
   transform: rotate(180deg);
 }
 
 /* El contenedor de la lista plegable de idiomas */
-.top_bar__language_list {
+.dropdown_list {
   --language_list_radius: 0.3rem;
   border-radius: var(--language_list_radius);
   background-color: white;
@@ -54,14 +47,14 @@
   transition-timing-function: linear;
   z-index: var(--zI_popups);
 }
-.top_bar__language_list--active {
+.dropdown_list--active {
   transform: translate(-0.5rem, 0);
   opacity: 1;
   height: auto;
 }
 
 /* Las opciones de idiomas */
-.top_bar__language_opt {
+.dropdown_opt {
   --language_opt_padding_y: 0.25rem;
   font-size: 0.8rem;
   cursor: pointer;
@@ -73,22 +66,22 @@
   align-items: center;
   gap: 0.2rem;
 }
-.top_bar__language_opt:first-child {
+.dropdown_opt:first-child {
   padding-top: calc(var(--language_opt_padding_y) * 1.5);
   border-top-left-radius: var(--language_list_radius);
   border-top-right-radius: var(--language_list_radius);
 }
-.top_bar__language_opt:last-child {
+.dropdown_opt:last-child {
   padding-bottom: calc(var(--language_opt_padding_y) * 1.5);
   border-bottom-left-radius: var(--language_list_radius);
   border-bottom-right-radius: var(--language_list_radius);
 }
-.top_bar__language_opt:hover {
+.dropdown_opt:hover {
   background-color: rgba(0, 0, 0, 0.125);
 }
 
 /* Las banderas de las opciones de idiomas */
-.top_bar__language_opt_flag {
+.dropdown_opt_flag {
   width: 1.1rem;
 }
 
@@ -101,51 +94,51 @@
 
 @media screen and (max-width: 700px) {
   /* Los iconos del botón para cambiar de idioma */
-  .top_bar__language_icon {
+  .dropdown_icon {
     font-size: 1.9rem;
   }
   
   /* El icono de flecha */
-  .top_bar__language_icon--arrow {
+  .dropdown_icon--arrow {
     font-size: 1.5rem;
   }
 
   /* El contenedor de la lista plegable de idiomas */
-  .top_bar__language_list {
+  .dropdown_list {
     top: 1rem;
   }
 
   /* Las opciones de idiomas */
-  .top_bar__language_opt {
+  .dropdown_opt {
     font-size: 1.2rem;
   }
 
   /* Las banderas de las opciones de idiomas */
-  .top_bar__language_opt_flag {
+  .dropdown_opt_flag {
     width: 1.5rem;
   }
 }
 
 @media screen and (max-width: 650px) {
   /* Los iconos del botón para cambiar de idioma */
-  .top_bar__language_icon {
+  .dropdown_icon {
     font-size: 2.5rem;
   }
   
   /* El icono de flecha */
-  .top_bar__language_icon--arrow {
+  .dropdown_icon--arrow {
     font-size: 2.2rem;
   }
 
   /* Las opciones de idiomas */
-  .top_bar__language_opt {
+  .dropdown_opt {
     font-size: 1.4rem;
     --language_opt_padding_y: 0.45rem;
     gap: 0.4rem;
   }
 
   /* Las banderas de las opciones de idiomas */
-  .top_bar__language_opt_flag {
+  .dropdown_opt_flag {
     width: 1.7rem;
   }
 }
