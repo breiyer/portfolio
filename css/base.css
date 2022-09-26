@@ -123,11 +123,11 @@ html, body {
 }
 
 *::-webkit-scrollbar-thumb:active {
-  background-color: #999999;
+  background-color: #383838;
 }
 
 *::-webkit-scrollbar-thumb:hover {
-  background: #b3b3b3;
+  background: #383838;
   box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
 }
 
