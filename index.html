@@ -20,6 +20,7 @@
   <script src="js/components/DropDown.js"></script>
   <script src="js/components/IconLink.js"></script>
   <script src="js/components/ToggleBtn.js"></script>
+  <script src="js/components/SkillCard.js"></script>
   <script defer src="js/vue.app.js"></script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,6 +30,8 @@
   <link rel="stylesheet" type="text/css" href="css/components/drop_down.css">
   <link rel="stylesheet" type="text/css" href="css/components/icon_link.css">
   <link rel="stylesheet" type="text/css" href="css/components/toggle_btn.css">
+  <link rel="stylesheet" type="text/css" href="css/components/skill_card.css">
+  <link rel="stylesheet" type="text/css" href="css/components/skills_card_group.css">
 
   <link rel="stylesheet" type="text/css" href="css/top_bar.css">
   <link rel="stylesheet" type="text/css" href="css/top_bar__contact.css">
@@ -176,7 +179,23 @@
       </section>
     </div>
 
-    <div class="p_sections p_sections--skills" id="skills" i_watcher></div>
+    <div class="p_sections p_sections--skills" id="skills" i_watcher>
+      <div class="skills_card_group">
+        <div class="skills_card_group__card_container">
+          <skill-card
+            v-for="skill in skillsArray"
+            :key="`2${skill.skill}`"
+            :path="`img/skills/${skill.toLowerCase()}.png`"
+            :label="skill"
+            :alt="skill.alt"
+          >
+          </skill-card>
+        </div>
+
+        <h3 class="skills_card_group__title">All skills</h3>
+      <!-- <img :src="path" class="skill_card__img" :alt="alt"> -->
+      </div>
+    </div>
 
     <div class="p_sections p_sections--work" id="work" i_watcher></div>
   </div>

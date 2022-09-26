@@ -58,6 +58,7 @@ const vueApp = createApp({
     DropDown: DropDown,
     IconLink: IconLink,
     ToggleBtn: ToggleBtn,
+    SkillCard: SkillCard,
   },
   data() {
     return {
@@ -111,8 +112,34 @@ const vueApp = createApp({
       // Para mostrar o no el navbar menu cuando está en responsive
       showResponsiveNavBarMenu: false,
 
-      // -- Generación de id únicos
-      idCount: 0,
+      // Lista con las habilidades
+      skillsArray: [
+        'Nuxt Js',
+        'Vue Js',
+        'React Js',
+        'AWS',
+        'Azure DevOps',
+        'Bootstrap',
+        'CSS 3',
+        'Django',
+        'Docker',
+        'Flask',
+        'Git',
+        'GitHub',
+        'GraphQL',
+        'HTML 5',
+        'Java',
+        'JavaScript',
+        'TypeScript',
+        'MySQL',
+        'Sql',
+        'Sql Lite',
+        'Node Js',
+        'SCRUM',
+        'Sass',
+        'PHP',
+        'Python',
+      ],
     }
   },
 

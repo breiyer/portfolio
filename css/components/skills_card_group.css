@@ -1,0 +1,28 @@
+.skills_card_group {
+  width: 100%;
+  padding: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #d5d4da;
+  gap: 1rem;
+}
+
+.skills_card_group__card_container {
+  width: 100%;
+  background-color: #f8f7fc;
+  border-radius: 1px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.skills_card_group__title {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 2rem;
+}
