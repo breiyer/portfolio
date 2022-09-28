@@ -65,79 +65,18 @@
   display: none;
 }
 
-/* El botón que se revela en responsive */
-/* Botón de hamburguesa */
-.fancy_btn {
-  --fancy_btn_size: 3rem;
-  width: var(--fancy_btn_size);
-  height: var(--fancy_btn_size);
-  background-color: var(--color1);
-  border-radius: 50%;
-  position: relative;
-  box-shadow: inset -.3rem -.3rem 12px rgba(0, 0, 0, .1),
-  inset .7rem .7rem 12px rgba(255, 255, 255, .15);
-  align-self: center;
+/* Botón del responsive (hamburguesa) */
+.top_bar__navbar__responsive_btn {
   display: none;
 }
-.fancy_btn:hover {
-  cursor: pointer;
-}
-.fancy_btn::before {
-  content: "";
-  width: 80%;
-  height: 80%;
-  background-color: var(--color1);
-  border-radius: 50%;
-  position: absolute;
-  top: 10%;
-  left: 10%;
-  box-shadow: inset .3rem .3rem 12px rgba(0, 0, 0, .1),
-  inset -.7rem -.7rem 12px rgba(255, 255, 255, .15);
-}
-
-.fancy_btn__bar {
-  width: 50%;
-  height: 8%;
-  background-color: white;
-  position: absolute;
-  left: 25%;
-  border-radius: 1000px;
-  transition: all .4s;
-}
-
-.fancy_btn__bar--bar1 {
-  top: 29%;
-}
-.fancy_btn__bar--bar2 {
-  top: 46%;
-  opacity: 1;
-}
-.fancy_btn__bar--bar3 {
-  top: 63%;
-}
-
-/* Cuando se active el botón de hamburguesa */
-.fancy_btn--active {
+/* Cuando se active */
+.top_bar__navbar__responsive_btn--active {
   position: fixed;
   right: 1rem;
   top: 1rem;
-  --fancy_btn_size: 4rem;
+  --toggle_btn_size: 4rem;
   z-index: var(--zI_full_screen_elements);
   animation: just_appear 0.4s linear;
-}
-
-.fancy_btn--active .fancy_btn__bar--bar1 {
-  transform: rotate(45deg);
-  top: 47%;
-}
-
-.fancy_btn--active .fancy_btn__bar--bar2 {
-  opacity: 0;
-}
-
-.fancy_btn--active .fancy_btn__bar--bar3 {
-  transform: rotate(-45deg);
-  top: 47%;
 }
 
 /* Responsive */
@@ -241,7 +180,7 @@
   }
 
   /* Botón del responsive (hamburguesa) */
-  .fancy_btn {
+  .top_bar__navbar__responsive_btn {
     display: block;
   }
 }

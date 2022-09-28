@@ -1,16 +1,36 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Breiyer Corpas Amaya">
+  <meta name="keywords" content="HTML, CSS, JavaScript, Portfolio Web, Breiyer Corpas Amaya">
+  <meta name="description" content="Full Stack web developer portfolio">
+
   <title>Breiyer Corpas Amaya</title>
   <link rel="icon" type="image/x-icon" href="img/favicon.ico">
 
   <link rel="stylesheet" type="text/css" href="css/base.css">
   <link rel="stylesheet" type="text/css" href="css/normalize.css">
+
+  <script async src="https://kit.fontawesome.com/3ae0f4e5e7.js" crossorigin="anonymous"></script>
+  <script defer src="js/vue.js"></script>
+
+  <script src="js/components/DropDown.js"></script>
+  <script src="js/components/IconLink.js"></script>
+  <script src="js/components/ToggleBtn.js"></script>
+  <script defer src="js/vue.app.js"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Varela+Round&family=Rubik+Dirt&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" href="css/components/drop_down.css">
+  <link rel="stylesheet" type="text/css" href="css/components/icon_link.css">
+  <link rel="stylesheet" type="text/css" href="css/components/toggle_btn.css">
+
   <link rel="stylesheet" type="text/css" href="css/top_bar.css">
-  <link rel="stylesheet" type="text/css" href="css/top_bar__language.css">
   <link rel="stylesheet" type="text/css" href="css/top_bar__contact.css">
   <link rel="stylesheet" type="text/css" href="css/top_bar__navbar.css">
   <link rel="stylesheet" type="text/css" href="css/portfolio_sections.css">
@@ -18,9 +38,6 @@
   <link rel="stylesheet" type="text/css" href="css/about_section__contact.css">
   <link rel="stylesheet" type="text/css" href="css/about_section__about_me.css">
   <link rel="stylesheet" type="text/css" href="css/about_section__profile_picture.css">
-
-  <script src="https://kit.fontawesome.com/3ae0f4e5e7.js" crossorigin="anonymous"></script>
-  <script src="js/vue.js"></script>
 </head>
 <body>
   <div class="container" id="app">
@@ -29,71 +46,38 @@
     <nav class="top_bar">
 
       <!-- El plegable para cambiar idioma -->
-      <section class="top_bar__language" id="top_bar__language">
-        <div class="top_bar__language__container" @click="toggleLanguageList()">
-          <em class="fa-solid fa-language top_bar__language_icon"></em>
-          <em
-            :class="{ 'top_bar__language_icon--arrow_down': showLangList }"
-            class="
-              fa-solid fa-caret-up
-              top_bar__language_icon
-              top_bar__language_icon--arrow
-            "
-          >
-          </em>
-
-          <ul
-            :class="{ 'top_bar__language_list--active': showLangList }"
-            class="top_bar__language_list"
-          >
-            <li class="top_bar__language_opt" @click="setLanguage('en')">
-              English
-              <img src="img/US.svg" class="top_bar__language_opt_flag" alt="EEUU Flag">
-            </li>
-            <li class="top_bar__language_opt" @click="setLanguage('es')">
-              Español
-              <img src="img/ES.svg" class="top_bar__language_opt_flag" alt="Spain Flag">
-            </li>
-          </ul>
-        </div>
-      </section>
+      <drop-down
+        :show-list="showLangList"
+        :list-opts="langList"
+        fw-icon="fa-solid fa-language"
+        @toggle_list="toggleLanguageList"
+        @opt_clicked="setLanguage"
+      >
+        <template #label="{ opt }">
+          {{ opt.label }}
+          <img :src="`img/${opt.icon}`" class="dropdown_opt_flag" :alt="opt.alt">
+        </template>
+      </drop-down>
 
       <!-- La parte de contactar -->
       <section
-        :class="{ 'top_bar__contact--reveal': !section_about }"
+        :class="{ 'top_bar__contact--reveal': !this.navbarSections.about.active }"
         class="top_bar__contact"
       >
-        <small class="top_bar__contact_label">{{ setTranslationPoint('contact_label') }}</small>
+        <small class="top_bar__contact_label">
+          {{ setTranslationPoint('contact_label') }}
+        </small>
 
-        <a
-          class="top_bar__contact_link top_bar__contact_link--github"
-          href="https://github.com/breiyer"
-          target="_blank"
-          rel="noopener noreferrer"
-          title="Visitar perfil"
+        <icon-link
+          v-for="cLink in contactLinks"
+          :key="`2${cLink.fwIcon}`"
+          :hover-color="cLink.hoverColor"
+          :fw-icon="cLink.fwIcon"
+          :link-url="cLink.href"
+          :link-title="cLink.title"
+          md
         >
-          <em class="fa-brands fa-square-github fa-fw fa-lg"></em>
-        </a>
-
-        <a
-          class="top_bar__contact_link top_bar__contact_link--linkedin"
-          href="https://www.linkedin.com/in/breiyer-corpas-amaya-97a1531b9/"
-          target="_blank"
-          rel="noopener noreferrer"
-          title="Visitar perfil"
-          >
-          <em class="fa-brands fa-linkedin fa-fw fa-lg"></em>
-        </a>
-
-        <a
-          class="top_bar__contact_link top_bar__contact_link--mail"
-          href="mailto:breiyer@gmail.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          title="Enviar correo"
-          >
-          <em class="fa-solid fa-square-envelope fa-fw fa-lg"></em>
-        </a>
+        </icon-link>
       </section>
 
       <!-- El navbar -->
@@ -107,54 +91,28 @@
           <div class="top_bar__navbar_line"></div>
 
           <a
-            :class="{ 'top_bar__navbar_item--active': section_about }"
+            v-for="section in navbarSections"
+            :key="section.id"
+            :class="{ 'top_bar__navbar_item--active': section.active }"
             class="top_bar__navbar_item"
             title="Ir"
-            href="#about"
+            :href="`#${section.id}`"
             @click="watchNavBarItemClick()"
           >
-            <span class="top_bar__navbar_item_left">01.</span>
+            <span class="top_bar__navbar_item_left">{{ section.num }}.</span>
             <span class="top_bar__navbar_item_right">
-              {{ setTranslationPoint('nav_item_1') }}
-            </span>
-          </a>
-
-          <a
-            :class="{ 'top_bar__navbar_item--active': section_skills }"
-            class="top_bar__navbar_item"
-            title="Ir"
-            href="#skills"
-            @click="watchNavBarItemClick()"
-          >
-            <span class="top_bar__navbar_item_left">02.</span>
-            <span class="top_bar__navbar_item_right">
-              {{ setTranslationPoint('nav_item_2') }}
-            </span>
-          </a>
-
-          <a
-            :class="{ 'top_bar__navbar_item--active': section_work }"
-            class="top_bar__navbar_item"
-            title="Ir"
-            href="#work"
-            @click="watchNavBarItemClick()"
-          >
-            <span class="top_bar__navbar_item_left">03.</span>
-            <span class="top_bar__navbar_item_right">
-              {{ setTranslationPoint('nav_item_3') }}
+              {{ setTranslationPoint(`navbar_sections_${section.id}`) }}
             </span>
           </a>
         </ul>
 
-        <button
-          :class="{ 'fancy_btn--active': showResponsiveNavBarMenu }"
-          class="fancy_btn"
-          @click="toggleResponsiveNavBar()"
+        <toggle-btn
+          :class="{ 'top_bar__navbar__responsive_btn--active': showResponsiveNavBarMenu }"
+          class="top_bar__navbar__responsive_btn"
+          :btn-active="showResponsiveNavBarMenu"
+          @toggle-btn="toggleResponsiveNavBar()"
         >
-          <em class="fancy_btn__bar fancy_btn__bar--bar1"></em>
-          <em class="fancy_btn__bar fancy_btn__bar--bar2"></em>
-          <em class="fancy_btn__bar fancy_btn__bar--bar3"></em>
-        </button>
+        </toggle-btn>
       </section>
     </nav>
 
@@ -164,35 +122,16 @@
     <div class="p_sections p_sections--about" id="about" i_watcher>
       <section class="about__contact">
         <div class="about__contact_container">
-          <a
-            class="about__contact_link about__contact_link--github"
-            href="https://github.com/breiyer"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="Visitar perfil"
+          <icon-link
+            v-for="cLink in contactLinks"
+            :key="`2${cLink.fwIcon}`"
+            :hover-color="cLink.hoverColor"
+            :fw-icon="cLink.fwIcon"
+            :link-url="cLink.href"
+            :link-title="cLink.title"
+            lg
           >
-            <em class="fa-brands fa-square-github fa-fw fa-lg"></em>
-          </a>
-
-          <a
-            class="about__contact_link about__contact_link--linkedin"
-            href="https://www.linkedin.com/in/breiyer-corpas-amaya-97a1531b9/"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="Visitar perfil"
-            >
-            <em class="fa-brands fa-linkedin fa-fw fa-lg"></em>
-          </a>
-
-          <a
-            class="about__contact_link about__contact_link--mail"
-            href="mailto:breiyer@gmail.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="Enviar correo"
-            >
-            <em class="fa-solid fa-square-envelope fa-fw fa-lg"></em>
-          </a>
+          </icon-link>
 
           <small
             :class="`about__contact_label--${appLanguage}`"
@@ -220,6 +159,7 @@
             :href="`HV - Breiyer Corpas Amaya (${appLanguage}).pdf`"
             target="_blank"
             rel="noopener noreferrer"
+            :title="setTranslationPoint('about_me_info_4')"
             >
             {{ setTranslationPoint('about_me_info_4') }} <em class="fa-solid fa-file-pdf fa-lg"></em>
           </a>).
@@ -241,6 +181,4 @@
     <div class="p_sections p_sections--work" id="work" i_watcher></div>
   </div>
 </body>
-
-<script src="js/vue.app.js"></script>
 </html>

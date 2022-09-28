@@ -3,45 +3,17 @@
   justify-content: center;
   align-items: center;
   position: relative;
-}
-/* Mientras la sección de contactar deba estar oculta, este pseudo
-elemento la cubre para que no se vea y no se pueda interactuar con ella */
-.top_bar__contact::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  cursor: default;
-  background-color: var(--color3);
+  opacity: 0;
 }
 
 /* Cuando se revele la sección de contactar */
 .top_bar__contact--reveal {
+  opacity: 1;
   animation: appear_from_left 1.3s 1;
 }
-.top_bar__contact--reveal::after {
-  display: none;
-}
-
-/* Los links */
-.top_bar__contact_link {
-  font-size: 1.2rem;
-  transform: scale(1);
-  transition: transform 0.2s ease-out;
-}
-.top_bar__contact_link:hover {
-  transform: scale(1.2);
-}
-.top_bar__contact_link--github {
-  color: white;
-}
-.top_bar__contact_link--linkedin {
-  color: rgb(10, 99, 188);
-}
-.top_bar__contact_link--mail {
-  color: rgb(188, 10, 10);
+/* Los iconos tendrán su color por defecto sin necesidad del hover */
+.top_bar__contact--reveal .icon_link{
+  color: var(--hover_color);
 }
 
 /* El label */
@@ -65,25 +37,11 @@ elemento la cubre para que no se vea y no se pueda interactuar con ella */
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: var(--color3);
     padding: 0.3rem;
-    display: none;
-  }
-
-  /* Ya no será necesario el pseudo elemento para ocultar
-  la parte del contactar */
-  .top_bar__contact::after {
-    display: none;
-  }
-
-  /* Ahora se revela todo el conetendor */
-  .top_bar__contact--reveal {
-    display: flex;
-  }
-
-  /* Los links */
-  .top_bar__contact_link {
-    font-size: 1.4rem;
+    width: calc(100% - var(--scroll_bar__width));
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+    background-color: var(--color3);
+    backdrop-filter: blur(1.5px);
   }
 
   /* El label */
@@ -95,11 +53,6 @@ elemento la cubre para que no se vea y no se pueda interactuar con ella */
 @media screen and (max-width: 650px) {
   .top_bar__contact {
     padding: 0.5rem;
-  }
-
-  /* Los links */
-  .top_bar__contact_link {
-    font-size: 1.6rem;
   }
 
   /* El label */

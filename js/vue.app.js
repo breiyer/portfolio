@@ -1,7 +1,7 @@
 class SiteNavService {
 
   constructor(callBack) {
-  
+
     /**
      * - El IntersectionObserver se encarga de monitorizar si dicho 
      *   objeto HTML al que observa se encuentra a cierta distancia de 
@@ -53,8 +53,12 @@ class SiteNavService {
 }
 
 const { createApp } = Vue
-createApp({
-
+const vueApp = createApp({
+  components: {
+    DropDown: DropDown,
+    IconLink: IconLink,
+    ToggleBtn: ToggleBtn,
+  },
   data() {
     return {
       // Clase para lo relacionado con el menú de navegación del sitio
@@ -65,17 +69,50 @@ createApp({
       appLanguage: 'en',
       // Para desplegar/replegar la lista de idiomas
       showLangList: false,
+      // Diccionario con los textos en sus diferentes idiomas
+      // para traducir la página.
       translationDict: { empty: true },
+      // Array para la lista plegable de idiomas
+      langList: {
+        es: { code: 'es', label: 'Español', icon: 'es_flag.svg', alt: 'Spain Flag' },
+        en: { code: 'en', label: 'English', icon: 'en_flag.svg', alt: 'EEUU Flag' },
+      },
+
+      // -- Contact list
+      contactLinks: [
+        {
+          hoverColor: 'white',
+          href: 'https://github.com/breiyer',
+          title: 'Visitar perfil',
+          fwIcon: 'fa-brands fa-square-github',
+        },
+        {
+          hoverColor: 'rgb(10, 99, 188)',
+          href: 'https://www.linkedin.com/in/breiyer-corpas-amaya-97a1531b9/',
+          title: 'Visitar perfil',
+          fwIcon: 'fa-brands fa-linkedin',
+        },
+        {
+          hoverColor: 'rgb(188, 10, 10)',
+          href: 'mailto:breiyer@gmail.com',
+          title: 'Enviar correo',
+          fwIcon: 'fa-solid fa-square-envelope',
+        },
+      ],
 
       // -- Navbar menu
-      // Secciones de la página, deben tener la siguiente nomenclatura:
-      // section_<section_id>
-      section_about: false,
-      section_skills: false,
-      section_work: false,
+      // Secciones de la página
+      navbarSections: {
+        about: { id: 'about', num: '01', active: false },
+        skills: { id: 'skills', num: '02', active: false },
+        work: { id: 'work', num: '03', active: false },
+      },
 
       // Para mostrar o no el navbar menu cuando está en responsive
       showResponsiveNavBarMenu: false,
+
+      // -- Generación de id únicos
+      idCount: 0,
     }
   },
 
@@ -102,12 +139,19 @@ createApp({
      * @param {String} lang - Lenguage a cambiar (formato de 2 letras: es, en, etc)
      */
     setLanguage(lang) {
-      this.appLanguage = lang
+      // Se traduce el idioma del sitio al especificado
+      this.appLanguage = lang.code
 
+      // Se toma el item del navbar menu que está activo, y se llama al método que
+      // activa el item activo, ya que al traducir el texto de las opciones del menú,
+      // estos cambian de longitud y se descuadra todo.
       const sectionActive = document.querySelector('.top_bar__navbar_item--active')
         .getAttribute('href')
         .slice(1)
       this.activateMenuOpt(sectionActive)
+
+      // Se cambia el idioma del sitio
+      document.documentElement.setAttribute('lang', this.appLanguage)
     },
 
     /**
@@ -122,7 +166,7 @@ createApp({
       if (this.translationDict.empty) return ''
       return this.translationDict[element][this.appLanguage]
     },
-  
+
     /**
      * - Hace toggle de las clases necesarias para
      *   desplegar/replegar la lista de idiomas disponibles.
@@ -164,13 +208,11 @@ createApp({
     async activateMenuOpt(sectionId) {
       // Se les quita la clase active a todos los item, para luego
       // agregarla al item activo.
-      this.section_about = false
-      this.section_skills = false
-      this.section_work = false
+      for (const section of Object.keys(this.navbarSections)) {
+        this.navbarSections[section].active = false
+      }
+      this.navbarSections[sectionId].active = true
 
-      const sectionName = `section_${sectionId}`
-      this[sectionName] = true
-  
       // Se actualiza la posición y width de la línea para que se ajuste
       // al nuevo elemento activo del navbar. Se esperan 100ms para que en
       // responsive le de tiempo al DOM de renderizar el item activo del navbar
@@ -181,7 +223,7 @@ createApp({
       const navBar = document.querySelector('.top_bar__navbar_line')
       const navBarLinePosX = menuOptToActive.offsetLeft
       const navBarLineWidth = menuOptToActive.offsetWidth
-  
+
       navBar.style.left = `${navBarLinePosX}px`
       navBar.style.width = `${navBarLineWidth}px`
     },
@@ -202,6 +244,6 @@ createApp({
      */
     watchNavBarItemClick() {
       if (this.showResponsiveNavBarMenu) this.toggleResponsiveNavBar()
-    }
+    },
   }
 }).mount('#app')

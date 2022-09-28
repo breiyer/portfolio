@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik+Dirt&family=Varela+Round&display=swap');
-
 * {
   font-family: 'Varela Round', sans-serif;
   box-sizing: border-box;
@@ -34,7 +32,7 @@ html, body {
   /* Colores */
   --color1: rgb(255, 165, 0);
   --color2: rgb(238, 105, 131);
-  --color3: rgb(25, 25, 25);
+  --color3: rgba(46, 46, 46, 0.8);
   --color4: rgb(46, 46, 46);
   --color_inactive: rgba(92, 89, 89, 1);
 
@@ -43,6 +41,9 @@ html, body {
   --zI_popups: 500;
   --zI_full_screen_containers: 600;
   --zI_full_screen_elements: 700;
+
+  /* Scrollbar */
+  --scroll_bar__width: 8px;
 }
 
 .fancy_title {
@@ -89,8 +90,8 @@ html, body {
     opacity: 0;
   }
   100%{
-      transform: translate(0, 0);
-      opacity: 1;
+    transform: translate(0, 0);
+    opacity: 1;
   }
 }
 
@@ -99,12 +100,12 @@ html, body {
 }
 @keyframes just_appear {
   0%{
-      opacity: 0;
-      transform: scale(.8);
+    opacity: 0;
+    transform: scale(.8);
   }
   100%{
-      opacity: 1;
-      transform: scale(1);
+    opacity: 1;
+    transform: scale(1);
   }
 }
 
@@ -112,7 +113,7 @@ html, body {
 
 /* Tamaño del scroll */
 *::-webkit-scrollbar {
-  width: 8px;
+  width: var(--scroll_bar__width);
   height: 8px;
 }
 
@@ -123,11 +124,11 @@ html, body {
 }
 
 *::-webkit-scrollbar-thumb:active {
-  background-color: #999999;
+  background-color: #383838;
 }
 
 *::-webkit-scrollbar-thumb:hover {
-  background: #b3b3b3;
+  background: #383838;
   box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
 }
 

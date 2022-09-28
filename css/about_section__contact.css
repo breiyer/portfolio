@@ -22,27 +22,6 @@
   z-index: 1;
 }
 
-/* Los links */
-.about__contact_link {
-  font-size: 1.5rem;
-  color: var(--color_inactive);
-  transition-property: color, transform;
-  transition-duration: 0.5s;
-  transition-timing-function: ease;
-}
-.about__contact_link:hover {
-  transform: scale(0.9);
-}
-.about__contact_link--github:hover {
-  color: white;
-}
-.about__contact_link--linkedin:hover {
-  color: rgb(10, 99, 188);
-}
-.about__contact_link--mail:hover {
-  color: rgb(188, 10, 10);
-}
-
 /* El label */
 .about__contact_label {
   width: max-content;
