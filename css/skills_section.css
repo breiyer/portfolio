@@ -31,9 +31,9 @@
   width: 100%;
   padding: 1rem 2rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
   grid-template-rows: 1fr;
   justify-content: center;
   align-items: flex-start;
-  gap: 3rem;
+  gap: 2rem;
 }
