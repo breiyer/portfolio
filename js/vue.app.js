@@ -114,31 +114,46 @@ const vueApp = createApp({
 
       // Lista con las habilidades
       skillsArray: [
-        'Nuxt Js',
-        'Vue Js',
-        'React Js',
-        'AWS',
-        'Azure DevOps',
-        'Bootstrap',
-        'CSS 3',
-        'Django',
-        'Docker',
-        'Flask',
-        'Git',
-        'GitHub',
-        'GraphQL',
-        'HTML 5',
-        'Java',
-        'JavaScript',
-        'TypeScript',
-        'MySQL',
-        'Sql',
-        'Sql Lite',
-        'Node Js',
-        'SCRUM',
-        'Sass',
-        'PHP',
-        'Python',
+        {
+          label: 'Frontend',
+          list: [
+            { name: 'Nuxt Js', label: true },
+            { name: 'Vue Js', label: true },
+            { name: 'React Js', label: true },
+            { name: 'JavaScript', label: true },
+            { name: 'Bootstrap', label: false },
+            { name: 'CSS 3', label: false },
+            { name: 'HTML 5', label: false },
+            { name: 'Node Js', label: false },
+            { name: 'Sass', label: false },
+          ],
+        },
+        {
+          label: 'Backend',
+          list: [
+            { name: 'Django', label: true },
+            { name: 'TypeScript', label: true },
+            { name: 'PHP', label: false },
+            { name: 'GraphQL', label: true },
+            { name: 'Flask', label: false },
+            { name: 'Python', label: true },
+            { name: 'Java', label: false },
+            { name: 'MySQL', label: false },
+            { name: 'Sql', label: false },
+            { name: 'Sql Lite', label: false },
+          ],
+        },
+        {
+          label: 'Dev technologies',
+          list: [
+            { name: 'AWS', label: false },
+            { name: 'Azure DevOps', label: true },
+            { name: 'Docker', label: false },
+            { name: 'Git', label: true },
+            { name: 'GitHub', label: false },
+            { name: 'SCRUM', label: true },
+          ],
+        },
       ],
     }
   },
@@ -215,9 +230,11 @@ const vueApp = createApp({
      * @param {Object} observador - Objeto "IntersectionObserver".
      */
     watchSiteSections(entradas, observador) {
+      console.log(entradas, 'entradas')
       for (const entrada of entradas) {
         if (entrada.isIntersecting) {
           const sectionId = entrada.target.getAttribute('id')
+          console.log(sectionId, 'sId')
           this.activateMenuOpt(sectionId)
         }
       }

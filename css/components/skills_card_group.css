@@ -1,28 +1,38 @@
+/* Contenedor de los grupos de tarjetas y sus títulos */
 .skills_card_group {
-  width: 100%;
-  padding: 5rem;
+  --skill_card_size: 13rem;
+  width: calc(var(--skill_card_size) + 1rem);
+  padding: 1rem 2rem;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #d5d4da;
-  gap: 1rem;
+  flex-direction: column;
 }
 
+/* Contenedor del título de los grupos de tarjetas */
+.skills_card_group__title_container {
+  width: 100%;
+  text-align: left;
+  background-color: var(--color1_light);
+  border-radius: 1000px;
+  padding: 0.5rem;
+}
+
+/* Títulos de los contenedores de tarjetas */
+.skills_card_group__title_container {
+  color: var(--color1);
+  font-size: 1rem;
+  border-radius: 1000px;
+  padding: 0.5rem;
+}
+
+/* Contenedor de los grupos de tarjetas */
 .skills_card_group__card_container {
   width: 100%;
-  background-color: #f8f7fc;
-  border-radius: 1px;
+  --skill_card_radius: 0.3rem;
+  border-radius: var(--skill_card_radius);
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: center;
   gap: 1rem;
   padding: 1rem;
-}
-
-.skills_card_group__title {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  font-size: 2rem;
 }
