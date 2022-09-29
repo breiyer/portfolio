@@ -31,8 +31,8 @@ html, body {
 :root {
   /* Colores */
   --color1: rgb(255, 165, 0);
-  --color1_light: rgba(255, 165, 0, 0.1);
   --color2: rgb(238, 105, 131);
+  --color2_light: rgba(238, 105, 131, 0.25);
   --color3: rgba(46, 46, 46, 0.8);
   --color4: rgb(46, 46, 46);
   --color_inactive: rgb(158, 158, 158);

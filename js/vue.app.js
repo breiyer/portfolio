@@ -144,7 +144,7 @@ const vueApp = createApp({
           ],
         },
         {
-          label: 'Dev technologies',
+          label: 'Development',
           list: [
             { name: 'AWS', label: false },
             { name: 'Azure DevOps', label: true },
