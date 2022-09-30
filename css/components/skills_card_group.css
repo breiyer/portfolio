@@ -22,13 +22,14 @@
 
 /* Títulos de los contenedores de tarjetas */
 .skills_card_group__title {
-  color: var(--color1);
+  color: white;
   font-weight: bold;
   letter-spacing: 0.3rem;
   font-size: 1rem;
-  background-color: var(--color2_light);
+  background-color: rgba(9, 9, 9, 0.34);
   border-radius: 1000px;
   padding: 0.5rem;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
 }
 
 /* Contenedor de las tarjetas */
@@ -43,4 +44,24 @@
   align-items: flex-start;
   gap: 1rem;
   padding: 1rem;
+}
+
+/* Responsive */
+@media screen and (max-width: 1200px) {
+}
+
+@media screen and (max-width: 900px) {
+}
+
+@media screen and (max-width: 700px) {
+  /* Títulos de los contenedores de tarjetas */
+  .skills_card_group__title {
+    font-size: 1.3rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+}
+
+@media screen and (max-width: 400px) {
 }
