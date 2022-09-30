@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="Breiyer Corpas Amaya">
   <meta name="keywords" content="HTML, CSS, JavaScript, Portfolio Web, Breiyer Corpas Amaya">
@@ -20,6 +19,7 @@
   <script src="js/components/DropDown.js"></script>
   <script src="js/components/IconLink.js"></script>
   <script src="js/components/ToggleBtn.js"></script>
+  <script src="js/components/SkillCard.js"></script>
   <script defer src="js/vue.app.js"></script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,6 +29,8 @@
   <link rel="stylesheet" type="text/css" href="css/components/drop_down.css">
   <link rel="stylesheet" type="text/css" href="css/components/icon_link.css">
   <link rel="stylesheet" type="text/css" href="css/components/toggle_btn.css">
+  <link rel="stylesheet" type="text/css" href="css/components/skill_card.css">
+  <link rel="stylesheet" type="text/css" href="css/components/skills_card_group.css">
 
   <link rel="stylesheet" type="text/css" href="css/top_bar.css">
   <link rel="stylesheet" type="text/css" href="css/top_bar__contact.css">
@@ -38,6 +40,7 @@
   <link rel="stylesheet" type="text/css" href="css/about_section__contact.css">
   <link rel="stylesheet" type="text/css" href="css/about_section__about_me.css">
   <link rel="stylesheet" type="text/css" href="css/about_section__profile_picture.css">
+  <link rel="stylesheet" type="text/css" href="css/skills_section.css">
 </head>
 <body>
   <div class="container" id="app">
@@ -176,7 +179,35 @@
       </section>
     </div>
 
-    <div class="p_sections p_sections--skills" id="skills" i_watcher></div>
+    <div class="p_sections p_sections--skills" id="skills" i_watcher>
+
+      <h2 class="skills__title fancy_title">
+        Let’s see the technologies and knowledge
+        <br>
+        <span class="skills__title__text_below fancy_title">
+          that I have learned
+        </span>
+      </h2>
+
+      <div class="skills__skills_container">
+        <div v-for="skillGroup in skillsArray" class="skills_card_group">
+          <h3 class="skills_card_group__title_container">
+            <span class="skills_card_group__title">{{ skillGroup.label }}</span>
+          </h3>
+
+          <div class="skills_card_group__card_container">
+            <skill-card
+              v-for="skill in skillGroup.list"
+              :key="`2${skill.name}`"
+              :path="`img/skills/${skill.name.toLowerCase()}.png`"
+              :label="skill.label ? skill.name : null"
+              :alt="`Tecnología ${skill.name}`"
+            >
+            </skill-card>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <div class="p_sections p_sections--work" id="work" i_watcher></div>
   </div>

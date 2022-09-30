@@ -1,0 +1,91 @@
+/* El contenedor de toda la sección de Skills */
+.p_sections--skills {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* background: linear-gradient(180deg, var(--color4), #eee); */
+}
+
+/* El título */
+.skills__title {
+  width: 100%;
+  max-width: 45rem;
+  line-height: 0.85;
+  padding: 2rem 3rem;
+  font-size: 4rem;
+  color: var(--color1);
+  text-align: center;
+}
+
+/* El texto debajo del título */
+.skills__title__text_below {
+  font-size: 2rem;
+  display: inline-block;
+  transform: translateY(-1rem);
+  color: var(--color2);
+}
+
+/* El contenedor de las skills */
+.skills__skills_container {
+  width: 100%;
+  padding: 1rem 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  grid-template-rows: 1fr;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+/* Responsive */
+@media screen and (max-width: 1200px) {
+}
+
+@media screen and (max-width: 900px) {
+}
+
+@media screen and (max-width: 700px) {
+  /* El contenedor de las skills */
+  .skills__skills_container {
+    gap: 4rem;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  /* El título */
+  .skills__title {
+    font-size: 3rem;
+  }
+
+  /* El texto debajo del título */
+  .skills__title__text_below {
+    font-size: 1.5rem;
+    transform: translateY(-0.8rem);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  /* El título */
+  .skills__title {
+    font-size: 2.5rem;
+  }
+
+  /* El texto debajo del título */
+  .skills__title__text_below {
+    font-size: 1.2rem;
+    transform: translateY(-0.6rem);
+  }
+}
+
+@media screen and (max-width: 400px) {
+  /* El título */
+  .skills__title {
+    font-size: 2.1rem;
+  }
+
+  /* El texto debajo del título */
+  .skills__title__text_below {
+    transform: translateY(-0.5rem);
+  }
+}
