@@ -64,7 +64,7 @@
 
       <!-- La parte de contactar -->
       <section
-        :class="{ 'top_bar__contact--reveal': !this.navbarSections.about.active }"
+        :class="{ 'top_bar__contact--reveal': sectionActive() !== 'about' }"
         class="top_bar__contact"
       >
         <small class="top_bar__contact_label">
@@ -96,7 +96,7 @@
           <a
             v-for="section in navbarSections"
             :key="section.id"
-            :class="{ 'top_bar__navbar_item--active': section.active }"
+            :class="{ 'top_bar__navbar_item--active': sectionActive() === section.id }"
             class="top_bar__navbar_item"
             title="Ir"
             :href="`#${section.id}`"

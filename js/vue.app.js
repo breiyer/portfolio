@@ -27,7 +27,7 @@ class SiteNavService {
       // envías 2 el primero será asignado para las direcciones de top y bottom, y el segundo 
       // será asignado para las direcciones de left y right, y si envias 4 se tomarán para las 
       // direcciones de top, right, bottom, y left respectivamente.
-      threshold: .7  // Indica cuánto porcentaje del objeto HTML observado debe se va a considerar.
+      threshold: .3  // Indica cuánto porcentaje del objeto HTML observado debe se va a considerar.
       // Si se coloca .1; se entiende que con cuando el 10% del objeto HTML observado esté a la distancia 
       // esperada, basta para considerar que está intersectado, y si se coloca 1; se entiende que la 
       // totalidad del objeto HTML observado debe estar a la distancia esperada para considerar que está 
@@ -102,17 +102,43 @@ const vueApp = createApp({
       ],
 
       // -- Navbar menu
-      // Secciones de la página
+      // Secciones de la página.
+      // El atributo intersectionRatio se usa para saber qué
+      // secciones están siendo intersectadas, y qué porcentaje de
+      // ellas se está viendo, y así decidir cuál activar en el navbar.
       navbarSections: {
-        about: { id: 'about', num: '01', active: false },
-        skills: { id: 'skills', num: '02', active: false },
-        work: { id: 'work', num: '03', active: false },
+        about:
+          {
+            id: 'about',
+            num: '01',
+            active: false,
+            intersectionRatio: 0,
+          },
+        skills:
+          {
+            id: 'skills',
+            num: '02',
+            active: false,
+            intersectionRatio: 0,
+          },
+        work:
+          {
+            id: 'work',
+            num: '03',
+            active: false,
+            intersectionRatio: 0,
+          },
       },
 
       // Para mostrar o no el navbar menu cuando está en responsive
       showResponsiveNavBarMenu: false,
 
-      // Lista con las habilidades
+      // Lista con las habilidades.
+      // El atributo name se usa para:
+      // 1) Buscar la imagen de la habilidad en
+      //    la ruta: `img/skills/${skill.name.toLowerCase()}.png`
+      // 2) El nombre de la tarjeta (que aparecerá debajo de
+      //    la imagen) si el atributo label === true
       skillsArray: [
         {
           label: 'Frontend',
@@ -220,49 +246,34 @@ const vueApp = createApp({
     // IntersectionObserver and navbar site feat
     /**
      * 
-     * - Esta función es el callback del objeto "IntersectionObserver", se 
-     *   asegura de monitorizar cada cambio en el scroll y verifica cuando
-     *   una de las entradas (objetos HTML monitorizados) está siendo intersectado
-     *   según las reglas del observador.
-     * - Cuando un objeto está siendo intersectado, 
+     * - Esta función es el callback del objeto "IntersectionObserver",
+     *   cada vez que una entrada del IntersectionObserver sufre un cambio
+     *   en su isIntersecting, esta función es llamada.
+     * - Recorre las entradas, y actualiza el atributo intersectionRatio de
+     *   la sección del this.navbarSections que corresponda con el id de la
+     *   entrada, y además llama a this.activateMenuOpt() para que mueva la barra.
      * 
-     * @param {Dict} entradas - Diccionario con los objetos HTML que el observador está monitorizando (y sus estados, es decir, si están intersectados o no).
+     * @param {Dict} entries - Diccionario con los objetos HTML que el observador está monitorizando y tuvieron un cambio en su attr isIntersecting.
      * @param {Object} observador - Objeto "IntersectionObserver".
      */
-    watchSiteSections(entradas, observador) {
-      console.log(entradas, 'entradas')
-      for (const entrada of entradas) {
-        if (entrada.isIntersecting) {
-          const sectionId = entrada.target.getAttribute('id')
-          console.log(sectionId, 'sId')
-          this.activateMenuOpt(sectionId)
-        }
+    watchSiteSections(entries, observador) {
+      for (const entry of entries) {
+        const entryId = entry.target.getAttribute('id')
+        const entryIntersectionRatio = entry.isIntersecting ? entry.intersectionRatio : 0
+        this.navbarSections[entryId].intersectionRatio = entryIntersectionRatio
+
+        this.activateMenuOpt(this.sectionActive())
       }
     },
 
     /**
      * 
-     * - Activa las clases necesaria para que el item del navbar que
-     *   corresponda a la sección en la que se está, se active.
-     * - Además, mueve la barra del navbar a la posición del item activo,
+     * - Mueve la barra del navbar a la posición del item activo,
      *   y lo ajusta a su width.
      * 
      * @param {String} sectionId Id de la sección donde se está.
      */
     async activateMenuOpt(sectionId) {
-      // Se les quita la clase active a todos los item, para luego
-      // agregarla al item activo.
-      for (const section of Object.keys(this.navbarSections)) {
-        this.navbarSections[section].active = false
-      }
-      this.navbarSections[sectionId].active = true
-
-      // Se actualiza la posición y width de la línea para que se ajuste
-      // al nuevo elemento activo del navbar. Se esperan 100ms para que en
-      // responsive le de tiempo al DOM de renderizar el item activo del navbar
-      // menu y así poder tomar sus dimensiones y posición.
-      await new Promise(resolve => setTimeout(resolve, 100))
-
       const menuOptToActive = document.querySelector(`a[href="#${sectionId}"]`)
       const navBar = document.querySelector('.top_bar__navbar_line')
       const navBarLinePosX = menuOptToActive.offsetLeft
@@ -270,6 +281,22 @@ const vueApp = createApp({
 
       navBar.style.left = `${navBarLinePosX}px`
       navBar.style.width = `${navBarLineWidth}px`
+    },
+
+    /**
+     * 
+     * - Recorre las secciones, y devuelve el id de la sección
+     *   que tiene mayor intersectionRatio.
+     * 
+     * @returns Id de la sección que está activa
+     */
+    sectionActive() {
+      const sectionActive = Object.keys(this.navbarSections).reduce((lastValue, currentValue) => {
+        const lValue = this.navbarSections[lastValue].intersectionRatio
+        const cValue = this.navbarSections[currentValue].intersectionRatio
+        return lValue > cValue ? lastValue : currentValue
+      })
+      return this.navbarSections[sectionActive].id
     },
 
     /**
