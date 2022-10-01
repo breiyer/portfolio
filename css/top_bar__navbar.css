@@ -106,6 +106,7 @@
 @media screen and (max-width: 650px) {
   /* El contenedor de la navbar */
   .top_bar__navbar_container {
+    align-items: center;
     justify-content: space-between;
     padding: 0.3rem 1rem;
   }
@@ -126,14 +127,15 @@
     justify-content: flex-start;
     align-items: center;
     background-color: var(--color4);
-    padding: 5rem;
-    gap: 2rem;
+    padding: 2rem;
+    gap: 1.8rem;
     z-index: var(--zI_full_screen_containers);
   }
 
   /* La imagen que se revela con el menú en responsive */
   .top_bar__navbar__profile_photo {
-    --photo_size: 15rem;
+    --photo_size: 13rem;
+    transform: translateY(1rem);
   }
 
   /* Los item del navbar */
@@ -154,7 +156,7 @@
     font-size: 1.55rem;
   }
   .top_bar__navbar--responsive .top_bar__navbar_item_left {
-    font-size: 3.55rem;
+    font-size: 2rem;
   }
 
   /* La parte derecha de los item (el nombre del item) */
@@ -162,13 +164,13 @@
     font-size: 1.3rem;
   }
   .top_bar__navbar--responsive .top_bar__navbar_item_right {
-    font-size: 3.3rem;
+    font-size: 1.8rem;
   }
 
   /* La línea que se mueve y marca la sección donde se está */
   .top_bar__navbar--responsive .top_bar__navbar_line {
     position: initial;
-    width: 80% !important;
+    width: 70% !important;
     height: 2.5px;
     left: initial;
     top: initial;
@@ -189,8 +191,8 @@
   /* La barra de navegación del sitio (navbar) */
   .top_bar__navbar--responsive {
     justify-content: center;
-    padding: 3rem;
-    gap: 1.5rem;
+    padding: 2rem;
+    gap: 1.3rem;
   }
 
   /* La parte izquierda de los item (el número y el punto) */
@@ -198,7 +200,7 @@
     font-size: 1.65rem;
   }
   .top_bar__navbar--responsive .top_bar__navbar_item_left {
-    font-size: 3.05rem;
+    font-size: 2.55rem;
   }
 
   /* La parte derecha de los item (el nombre del item) */
@@ -206,23 +208,83 @@
     font-size: 1.4rem;
   }
   .top_bar__navbar--responsive .top_bar__navbar_item_right {
-    font-size: 2.8rem;
+    font-size: 2.3rem;
   }
 }
 
 @media screen and (max-width: 400px) {
   /* La barra de navegación del sitio (navbar) */
   .top_bar__navbar--responsive {
-    padding: 2rem;
+    padding: 1.5rem;
+  }
+
+  /* La imagen que se revela con el menú en responsive */
+  .top_bar__navbar__profile_photo {
+    --photo_size: 11rem;
   }
 
   /* La parte izquierda de los item (el número y el punto) */
+  .top_bar__navbar_item_left {
+    font-size: 1.35rem;
+  }
   .top_bar__navbar--responsive .top_bar__navbar_item_left {
     font-size: 2.55rem;
   }
 
   /* La parte derecha de los item (el nombre del item) */
+  .top_bar__navbar_item_right {
+    font-size: 1.1rem;
+  }
   .top_bar__navbar--responsive .top_bar__navbar_item_right {
     font-size: 2.3rem;
+  }
+
+  /* La línea que se mueve y marca la sección donde se está */
+  .top_bar__navbar--responsive .top_bar__navbar_line {
+    width: 85% !important;
+  }
+
+  /* Botón del responsive (hamburguesa) */
+  /* Cuando se active */
+  .top_bar__navbar__responsive_btn--active {
+    --toggle_btn_size: 3rem;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  /* El contenedor de la navbar */
+  .top_bar__navbar_container {
+    padding-left: 0.1rem;
+  }
+
+  /* La barra de navegación del sitio (navbar) */
+  .top_bar__navbar--responsive {
+    padding: 1rem;
+  }
+
+  /* La imagen que se revela con el menú en responsive */
+  .top_bar__navbar__profile_photo {
+    max-width: 90%;
+  }
+
+  /* La parte izquierda de los item (el número y el punto) */
+  .top_bar__navbar_item_left {
+    font-size: 1.2rem;
+  }
+  .top_bar__navbar--responsive .top_bar__navbar_item_left {
+    font-size: 1.95rem;
+  }
+
+  /* La parte derecha de los item (el nombre del item) */
+  .top_bar__navbar_item_right {
+    font-size: 1rem;
+  }
+  .top_bar__navbar--responsive .top_bar__navbar_item_right {
+    font-size: 1.7rem;
+  }
+
+  /* La línea que se mueve y marca la sección donde se está */
+  .top_bar__navbar--responsive .top_bar__navbar_line {
+    width: 95% !important;
   }
 }

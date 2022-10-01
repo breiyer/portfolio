@@ -21,13 +21,13 @@ class SiteNavService {
       // distancia del objeto HTML observado. En el caso de que se quiera medir 
       // desde la parte visible de otro objeto HTML se debe enviar el objeto como 
       // tal, por ejemplo: document.querySelector('#referenceObject')
-      rootMargin: '0px',  // A cuántas unidades (se debe especificar si en PX, REM etc) 
+      rootMargin: '-50% 0px -50% 0px',  // A cuántas unidades (se debe especificar si en PX, REM etc) 
       // de margin debe estar el objeto observado. Se trabaja como en css, si envias solo 
       // un parámetro asigna ese valor para las 4 direcciones (top, right, bottom, left), si 
       // envías 2 el primero será asignado para las direcciones de top y bottom, y el segundo 
       // será asignado para las direcciones de left y right, y si envias 4 se tomarán para las 
       // direcciones de top, right, bottom, y left respectivamente.
-      threshold: .3  // Indica cuánto porcentaje del objeto HTML observado debe se va a considerar.
+      threshold: 0  // Indica cuánto porcentaje del objeto HTML observado debe se va a considerar.
       // Si se coloca .1; se entiende que con cuando el 10% del objeto HTML observado esté a la distancia 
       // esperada, basta para considerar que está intersectado, y si se coloca 1; se entiende que la 
       // totalidad del objeto HTML observado debe estar a la distancia esperada para considerar que está 
@@ -261,9 +261,8 @@ const vueApp = createApp({
         const entryId = entry.target.getAttribute('id')
         const entryIntersectionRatio = entry.isIntersecting ? entry.intersectionRatio : 0
         this.navbarSections[entryId].intersectionRatio = entryIntersectionRatio
-
-        this.activateMenuOpt(this.sectionActive())
       }
+      this.activateMenuOpt(this.sectionActive())
     },
 
     /**
@@ -274,6 +273,15 @@ const vueApp = createApp({
      * @param {String} sectionId Id de la sección donde se está.
      */
     async activateMenuOpt(sectionId) {
+      // Delay de 100ms para que le de tiempo al DOM de
+      // renderizar los elementos y así cuando se quiera
+      // obtener sus propiedades en esta función, se obtengan
+      // correctamente.
+      // Aplica para cuando carga por primera vez la página, y
+      // para cuando está en responsive que tarda renderizando
+      // el item del navbar que corresponde a la sección activa.
+      await new Promise(resolve => setTimeout(resolve, 100))
+
       const menuOptToActive = document.querySelector(`a[href="#${sectionId}"]`)
       const navBar = document.querySelector('.top_bar__navbar_line')
       const navBarLinePosX = menuOptToActive.offsetLeft
