@@ -61,3 +61,17 @@
   transform: rotate(-45deg);
   top: 47%;
 }
+
+@media screen and (max-width: 400px) {
+  /* Botón de hamburguesa */
+  .toggle_btn {
+    --toggle_btn_size: 2.25rem;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  /* Botón de hamburguesa */
+  .toggle_btn {
+    --toggle_btn_size: 2.09rem;
+  }
+}

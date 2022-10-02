@@ -64,7 +64,7 @@
 
       <!-- La parte de contactar -->
       <section
-        :class="{ 'top_bar__contact--reveal': !this.navbarSections.about.active }"
+        :class="{ 'top_bar__contact--reveal': sectionActive() !== 'about' }"
         class="top_bar__contact"
       >
         <small class="top_bar__contact_label">
@@ -96,7 +96,7 @@
           <a
             v-for="section in navbarSections"
             :key="section.id"
-            :class="{ 'top_bar__navbar_item--active': section.active }"
+            :class="{ 'top_bar__navbar_item--active': sectionActive() === section.id }"
             class="top_bar__navbar_item"
             title="Ir"
             :href="`#${section.id}`"
@@ -182,10 +182,10 @@
     <div class="p_sections p_sections--skills" id="skills" i_watcher>
 
       <h2 class="skills__title fancy_title">
-        Let’s see the technologies and knowledge
+        {{ setTranslationPoint('skills_title') }}
         <br>
         <span class="skills__title__text_below fancy_title">
-          that I have learned
+          {{ setTranslationPoint('skills_subtitle') }}
         </span>
       </h2>
 

@@ -37,6 +37,9 @@
 }
 
 @media screen and (max-width: 500px) {
+  .top_bar {
+    gap: 0.1rem;
+  }
 }
 
 @media screen and (max-width: 400px) {

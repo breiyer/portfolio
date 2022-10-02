@@ -1,6 +1,6 @@
 .skill_card {
-  width: 100%;
-  height: 100%;
+  width: var(--cards_size);
+  height: var(--cards_size);
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
