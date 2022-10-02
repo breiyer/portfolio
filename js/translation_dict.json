@@ -48,5 +48,12 @@
   },
   "about_me_info_8": {
     "es": "Puedo construir cualquier diseño que puedas imaginar", "en": "I can build any design you can imagine"
+  },
+
+  "skills_title": {
+    "es": "Veamos las tecnologías y los conocimientos", "en": "Let’s see the technologies and knowledge"
+  },
+  "skills_subtitle": {
+    "es": "que he aprendido", "en": "that I have learned"
   }
 }

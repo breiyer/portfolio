@@ -147,4 +147,45 @@
 }
 
 @media screen and (max-width: 400px) {
+  /* Los iconos del botón para cambiar de idioma */
+  .dropdown_icon {
+    font-size: 2.1rem;
+  }
+  
+  /* El icono de flecha */
+  .dropdown_icon--arrow {
+    font-size: 1.8rem;
+  }
+
+  /* Las opciones de idiomas */
+  .dropdown_opt {
+    font-size: 1rem;
+  }
+
+  /* Las banderas de las opciones de idiomas */
+  .dropdown_opt_flag {
+    width: 1.3rem;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  /* Los iconos del botón para cambiar de idioma */
+  .dropdown_icon {
+    font-size: 1.9rem;
+  }
+  
+  /* El icono de flecha */
+  .dropdown_icon--arrow {
+    font-size: 1.6rem;
+  }
+
+  /* Las opciones de idiomas */
+  .dropdown_opt {
+    font-size: 0.8rem;
+  }
+
+  /* Las banderas de las opciones de idiomas */
+  .dropdown_opt_flag {
+    width: 1.1rem;
+  }
 }
