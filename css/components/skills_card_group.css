@@ -34,7 +34,7 @@
 
 /* Contenedor de las tarjetas */
 .skills_card_group__card_container {
-  --cards_size: 7rem;
+  --cards_size: 6rem;
   width: 100%;
   border-radius: 0.3rem;
   display: grid;
