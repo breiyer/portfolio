@@ -31,6 +31,7 @@
   <link rel="stylesheet" type="text/css" href="css/components/toggle_btn.css">
   <link rel="stylesheet" type="text/css" href="css/components/skill_card.css">
   <link rel="stylesheet" type="text/css" href="css/components/skills_card_group.css">
+  <link rel="stylesheet" type="text/css" href="css/components/project_preview.css">
 
   <link rel="stylesheet" type="text/css" href="css/top_bar.css">
   <link rel="stylesheet" type="text/css" href="css/top_bar__contact.css">
@@ -41,6 +42,7 @@
   <link rel="stylesheet" type="text/css" href="css/about_section__about_me.css">
   <link rel="stylesheet" type="text/css" href="css/about_section__profile_picture.css">
   <link rel="stylesheet" type="text/css" href="css/skills_section.css">
+  <link rel="stylesheet" type="text/css" href="css/work_section.css">
 </head>
 <body>
   <div class="container" id="app">
@@ -209,7 +211,66 @@
       </div>
     </div>
 
-    <div class="p_sections p_sections--work" id="work" i_watcher></div>
+    <div class="p_sections p_sections--work" id="work" i_watcher>
+
+      <div class="work__projects_container">
+        <div class="project_preview">
+          <div class="project_preview__container">
+            <div class="project_preview__info">
+              <h2 class="project_preview__info__name">
+                BDEGC
+                <small class="project_preview__info__category fancy_color">
+                  Full Stack
+                </small>
+              </h2>
+
+              <p class="project_preview__info__description">
+                Web app que almacena documentos (DNI, Visa, Carnet,
+                Licencias etc) que han sido extraviados, con el fin de brindar un
+                servicio de localización siempre que el documento se encuentre en
+                poder de las franquicias asociadas al proyecto.
+              </p>
+            </div>
+
+            <div class="project_preview__preview">
+              <img
+                src="img/projects/bdegc.jpg"
+                class="project_preview__preview__img"
+                alt="Preview of the project bdegc"
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="project_preview">
+          <div class="project_preview__container">
+            <div class="project_preview__info">
+              <h2 class="project_preview__info__name">
+                LiquidezYa
+                <small class="project_preview__info__category fancy_color">
+                  Frontend
+                </small>
+              </h2>
+
+              <p class="project_preview__info__description">
+                Plataforma de factoring electrónico para
+                generar liquidez de manera fácil y garantizar la
+                sostenibilidad de tu negocio. Cuenta con opciones de
+                financiación y acompañamiento.
+              </p>
+            </div>
+
+            <div class="project_preview__preview">
+              <img
+                src="img/projects/liquidezya.jpg"
+                class="project_preview__preview__img"
+                alt="Preview of the project liquidezya"
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </body>
 </html>

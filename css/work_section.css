@@ -1,0 +1,14 @@
+/* El contenedor de toda la sección de Work */
+.p_sections--work {
+  padding-top: 5rem;
+}
+
+/* El contenedor de los proyectos */
+.work__projects_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  gap: 7rem;
+}

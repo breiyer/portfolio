@@ -1,12 +1,11 @@
-const IconLink = {
+const ProjectPreview = {
   props: {
-    hoverColor: { type: String, required: true },
-    fwIcon: { type: String, required: true },
-    linkUrl: { type: String, required: true },
-    linkTarget: { type: String, default: '_blank' },
-    linkTitle: { type: String, default: 'Ir' },
-    md: { type: Boolean, default: false },
-    lg: { type: Boolean, default: false },
+    img: { type: String, required: true },
+    category: { type: String, required: true },
+    name: { type: String, required: true },
+    description: { type: String, required: true },
+    codeBtn: { type: String, default: null },
+    viewMoreBtn: { type: String, default: null },
   },
   data() {
     return {}
