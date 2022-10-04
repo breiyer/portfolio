@@ -19,7 +19,7 @@
     "es": "Soy un", "en": "I'm A"
   },
   "about_me_hi_3": {
-    "es": "Dev Web", "en": "Full Stack"
+    "es": "Desarrollador", "en": "Full Stack"
   },
   "about_me_hi_4": {
     "es": "Full Stack", "en": "Web Developer"
@@ -54,6 +54,6 @@
     "es": "Veamos las tecnologías y los conocimientos", "en": "Let’s see the technologies and knowledge"
   },
   "skills_subtitle": {
-    "es": "que he aprendido", "en": "that I have learned"
+    "es": "que he adquirido", "en": "that I have learned"
   }
 }

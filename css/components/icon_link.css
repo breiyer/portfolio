@@ -1,36 +1,42 @@
 /* Los links */
 .icon_link {
+  --icon_link__size: 1rem;
+  width: var(--icon_link__size);
+  height: var(--icon_link__size);
+  font-size: var(--icon_link__size);
+  text-align: center;
+}
+
+/* El icono del link */
+.icon_link__icon {
+  font-size: var(--icon_link__size);
   color: var(--color_inactive);
   transition-property: color, transform;
   transition-duration: 0.5s;
   transition-timing-function: ease;
 }
-.icon_link:hover {
+.icon_link__icon:hover {
   color: var(--hover_color);
   transform: scale(0.9);
 }
 
 /* Tamaños */
 .icon_link--md {
-  font-size: 1.2rem;
+  --icon_link__size: 1.5rem;
 }
 .icon_link--lg {
-  font-size: 1.5rem;
+  --icon_link__size: 2rem;
 }
 
 @media screen and (max-width: 700px) {
   /* Tamaños */
   .icon_link--md {
-    font-size: 1.4rem;
+    --icon_link__size: 1.7rem;
   }
   .icon_link--lg {
-    font-size: 2rem;
+    --icon_link__size: 1.8rem;
   }
 }
 
 @media screen and (max-width: 650px) {
-  /* Tamaños */
-  .icon_link--md {
-    font-size: 1.6rem;
-  }
 }
