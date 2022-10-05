@@ -55,5 +55,12 @@
   },
   "skills_subtitle": {
     "es": "que he adquirido", "en": "that I have learned"
+  },
+
+  "work_title_up": {
+    "es": "Portafolio", "en": "Web"
+  },
+  "work_title_down": {
+    "es": "Web", "en": "Portfolio"
   }
 }
