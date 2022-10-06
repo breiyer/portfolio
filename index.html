@@ -22,6 +22,7 @@
   <script src="js/components/SkillCard.js"></script>
   <script src="js/components/ProjectPreview.js"></script>
   <script src="js/components/FancyButton.js"></script>
+  <script src="js/components/Carousel.js"></script>
   <script defer src="js/vue.app.js"></script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,6 +36,7 @@
   <link rel="stylesheet" type="text/css" href="css/components/skills_card_group.css">
   <link rel="stylesheet" type="text/css" href="css/components/project_preview.css">
   <link rel="stylesheet" type="text/css" href="css/components/fancy_button.css">
+  <link rel="stylesheet" type="text/css" href="css/components/carousel.css">
 
   <link rel="stylesheet" type="text/css" href="css/top_bar.css">
   <link rel="stylesheet" type="text/css" href="css/top_bar__contact.css">
@@ -253,6 +255,12 @@
         </project-preview>
       </div>
     </div>
+
+  <carousel
+    :img-array="currentCollage"
+    :show-carousel="showCarousel"
+    @close-carousel="closeProjectCollage()"
+  ></carousel>
   </div>
 </body>
 </html>

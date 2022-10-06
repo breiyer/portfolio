@@ -61,6 +61,7 @@ const vueApp = createApp({
     SkillCard: SkillCard,
     ProjectPreview: ProjectPreview,
     FancyButton: FancyButton,
+    Carousel: Carousel,
   },
   data() {
     return {
@@ -203,6 +204,20 @@ const vueApp = createApp({
           collageName: null,
         },
       ],
+      
+      // Lista con los collage de cada proyecto
+      collageArray: {
+        bdegc: [
+          '1.jpg',
+          '2.jpg',
+          '3.jpg',
+          '4.jpg',
+        ]
+      },
+      // El collage del proyecto activo
+      currentCollage: [],
+      // Para mostrar o no el carrusel
+      showCarousel: false,
     }
   },
 
@@ -351,7 +366,19 @@ const vueApp = createApp({
      * - Muestra el collage del proyecto especificado.
      */
     showProjectCollage(collageName) {
-      console.log('c', collageName)
+      const arrayTemp = this.collageArray[collageName].map(
+        (img) => `img/projects/collages/${collageName}/${img}`
+      )
+      this.currentCollage = arrayTemp
+      console.log(this.currentCollage, 'c')
+      this.showCarousel = true
     },
+
+    /**
+     * - Cierra el collage
+     */
+    closeProjectCollage() {
+      this.showCarousel = false
+    }
   }
 }).mount('#app')
