@@ -59,6 +59,8 @@ const vueApp = createApp({
     IconLink: IconLink,
     ToggleBtn: ToggleBtn,
     SkillCard: SkillCard,
+    ProjectPreview: ProjectPreview,
+    FancyButton: FancyButton,
   },
   data() {
     return {
@@ -179,6 +181,26 @@ const vueApp = createApp({
             { name: 'GitHub', label: false },
             { name: 'SCRUM', label: true },
           ],
+        },
+      ],
+
+      // Lista de proyectos
+      portfolioArray: [
+        {
+          name: 'BDEGC',
+          role: 'Full Stack',
+          description: 'Web app que almacena documentos (DNI, Visa, Carnet, Licencias etc) que han sido extraviados, con el fin de brindar un servicio de localización siempre que el documento se encuentre en poder de las franquicias asociadas al proyecto.',
+          sourceUrl: null,
+          siteUrl: null,
+          collageName: 'bdegc',
+        },
+        {
+          name: 'LiquidezYa',
+          role: 'Frontend',
+          description: 'Plataforma de factoring electrónico para generar liquidez de manera fácil y garantizar la sostenibilidad de tu negocio. Cuenta con opciones de financiación y acompañamiento.',
+          sourceUrl: null,
+          siteUrl: 'https://liquidezya.com/',
+          collageName: null,
         },
       ],
     }
@@ -323,6 +345,13 @@ const vueApp = createApp({
      */
     watchNavBarItemClick() {
       if (this.showResponsiveNavBarMenu) this.toggleResponsiveNavBar()
+    },
+
+    /**
+     * - Muestra el collage del proyecto especificado.
+     */
+    showProjectCollage(collageName) {
+      console.log('c', collageName)
     },
   }
 }).mount('#app')

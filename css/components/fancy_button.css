@@ -1,0 +1,30 @@
+/* El botón primario */
+.project_preview__info__btn {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  color: white;
+  background-color: var(--color1);
+  font-size: 1rem;
+  border-radius: 0.3rem;
+  margin: 0 0.3rem;
+  font-weight: bold;
+  box-shadow:
+    0 0 2px rgb(0, 0, 0, 0.2),
+    2px 2px 4px rgb(0, 0, 0, 0.2)
+  ;
+  cursor: pointer;
+}
+
+/* El botón secundario */
+.project_preview__info__btn--secondary {
+  background-color: var(--color2);
+  box-shadow: none;
+}
+
+/* El botón deshabilitado */
+.project_preview__info__btn--disabled {
+  background-color: var(--color_inactive);
+  cursor: default;
+  color: #575757;
+  box-shadow: 0 0 2px rgb(0, 0, 0, 0.1);
+}

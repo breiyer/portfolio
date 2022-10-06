@@ -20,6 +20,8 @@
   <script src="js/components/IconLink.js"></script>
   <script src="js/components/ToggleBtn.js"></script>
   <script src="js/components/SkillCard.js"></script>
+  <script src="js/components/ProjectPreview.js"></script>
+  <script src="js/components/FancyButton.js"></script>
   <script defer src="js/vue.app.js"></script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,6 +34,7 @@
   <link rel="stylesheet" type="text/css" href="css/components/skill_card.css">
   <link rel="stylesheet" type="text/css" href="css/components/skills_card_group.css">
   <link rel="stylesheet" type="text/css" href="css/components/project_preview.css">
+  <link rel="stylesheet" type="text/css" href="css/components/fancy_button.css">
 
   <link rel="stylesheet" type="text/css" href="css/top_bar.css">
   <link rel="stylesheet" type="text/css" href="css/top_bar__contact.css">
@@ -212,7 +215,6 @@
     </div>
 
     <div class="p_sections p_sections--work" id="work" i_watcher>
-
       <h2 class="work__title">
         {{ setTranslationPoint('work_title_up') }}
         <br>
@@ -220,61 +222,35 @@
       </h2>
 
       <div class="work__projects_container">
-        <div class="project_preview">
-          <div class="project_preview__container">
-            <div class="project_preview__info">
-              <h2 class="project_preview__info__name">
-                BDEGC
-                <small class="project_preview__info__category fancy_color">
-                  Full Stack
-                </small>
-              </h2>
+        <project-preview
+          v-for="project in portfolioArray"
+          :key="`2${project.name}`"
+          :project-img="`img/projects/${project.name.toLowerCase()}.jpg`"
+          :project-name="project.name"
+          :project-category="project.role"
+          :project-description="project.description"
+        >
+          <template #more>
+            <br>
+            <br>
 
-              <p class="project_preview__info__description">
-                Web app que almacena documentos (DNI, Visa, Carnet,
-                Licencias etc) que han sido extraviados, con el fin de brindar un
-                servicio de localización siempre que el documento se encuentre en
-                poder de las franquicias asociadas al proyecto.
-              </p>
-            </div>
+            <fancy-button
+              :btn-Disabled="project.sourceUrl === null"
+              btn-Secondary
+              btn-text="Ver código"
+              :btn-url="project.sourceUrl ?? '#'"
+              :link-target="project.sourceUrl ?? ''"
+            >
+            </fancy-button>
 
-            <div class="project_preview__preview">
-              <img
-                src="img/projects/bdegc.jpg"
-                class="project_preview__preview__img"
-                alt="Preview of the project bdegc"
-              >
-            </div>
-          </div>
-        </div>
-
-        <div class="project_preview">
-          <div class="project_preview__container">
-            <div class="project_preview__info">
-              <h2 class="project_preview__info__name">
-                LiquidezYa
-                <small class="project_preview__info__category fancy_color">
-                  Frontend
-                </small>
-              </h2>
-
-              <p class="project_preview__info__description">
-                Plataforma de factoring electrónico para
-                generar liquidez de manera fácil y garantizar la
-                sostenibilidad de tu negocio. Cuenta con opciones de
-                financiación y acompañamiento.
-              </p>
-            </div>
-
-            <div class="project_preview__preview">
-              <img
-                src="img/projects/liquidezya.jpg"
-                class="project_preview__preview__img"
-                alt="Preview of the project liquidezya"
-              >
-            </div>
-          </div>
-        </div>
+            <fancy-button
+              btn-text="Ver proyecto"
+              :btn-url="project.siteUrl"
+              @btn-click="showProjectCollage(project.collageName)"
+            >
+            </fancy-button>
+          </template>
+        </project-preview>
       </div>
     </div>
   </div>

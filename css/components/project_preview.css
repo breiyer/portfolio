@@ -14,7 +14,6 @@
   grid-template-columns: 1fr 35rem;
   grid-template-rows: 1fr;
   gap: 1rem;
-  border-left: solid var(--color1) 3px;
 }
 
 /* El lado donde está la info del proyecto */
@@ -73,13 +72,47 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1rem 2rem;
+}
+
+/* Contenedor de la img de preview del proyecto */
+.project_preview__preview__img_container {
+  position: relative;
+  width: 100%;
+  height: max-content;
+  z-index: 1;
+}
+.project_preview__preview__img_container::after {
+  content: "";
+  position: absolute;
+  left: 2.5%;
+  bottom: 0.5rem;
+  width: 95%;
+  height: 100%;
+  background-color: rgb(231, 172, 62);
+  border-radius: 0.5rem;
+  z-index: -1;
+}
+.project_preview__preview__img_container::before {
+  content: "";
+  position: absolute;
+  left: 5%;
+  bottom: 0.8rem;
+  width: 90%;
+  height: 100%;
+  background-color: rgb(231, 189, 113);
+  border-radius: 0.5rem;
+  z-index: -2;
 }
 
 /* Img de la preview del proyecto */
 .project_preview__preview__img {
   width: 100%;
   border-radius: 0.5rem;
+  z-index: 1;
+  box-shadow:
+    2px 2px 6px rgb(0, 0, 0, 0.2),
+    0 0 3px rgb(0, 0, 0, 0.3)
+  ;
 }
 
 /* Responsive */
@@ -124,23 +157,14 @@
   .project_preview__info__description {
     font-size: 0.9rem;
   }
-
-  /* Preview del proyecto */
-  .project_preview__preview {
-    padding: 1rem;
-  }
 }
 
 @media screen and (max-width: 700px) {
-  .project_preview {
-    max-width: 100%;
-  }
-
   /* El contenedor del proyecto */
   .project_preview__container {
     grid-template-columns: 1fr;
     grid-template-rows: max-content max-content;
-    gap: 0.5rem;
+    gap: 2.5rem;
     border-left: none;
   }
 
@@ -152,11 +176,6 @@
   /* Descripción del proyecto */
   .project_preview__info__description {
     font-size: 1rem;
-  }
-
-  /* Preview del proyecto */
-  .project_preview__preview {
-    padding: 1rem;
   }
 }
 
@@ -181,12 +200,6 @@
   /* Descripción del proyecto */
   .project_preview__info__description {
     font-size: 0.9rem;
-  }
-
-  /* Preview del proyecto */
-  .project_preview__preview {
-    padding: 0.5rem;
-    padding-top: 0;
   }
 }
 

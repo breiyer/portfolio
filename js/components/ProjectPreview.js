@@ -1,26 +1,42 @@
 const ProjectPreview = {
   props: {
-    img: { type: String, required: true },
-    category: { type: String, required: true },
-    name: { type: String, required: true },
-    description: { type: String, required: true },
-    codeBtn: { type: String, default: null },
-    viewMoreBtn: { type: String, default: null },
+    projectImg: { type: String, required: true },
+    projectName: { type: String, required: true },
+    projectCategory: { type: String, required: true },
+    projectDescription: { type: String, required: true },
   },
   data() {
     return {}
   },
   template: `
-    <a
-      :class="{ 'icon_link--md': md, 'icon_link--lg': lg, }"
-      class="icon_link"
-      :style="'--hover_color:' + hoverColor + ';'"
-      :href="linkUrl"
-      :target="linkTarget"
-      rel="noopener noreferrer"
-      :title="linkTitle"
-    >
-      <em :class="fwIcon + ' fa-fw fa-lg'"></em>
-    </a>
+    <div class="project_preview">
+      <div class="project_preview__container">
+        <div class="project_preview__info">
+          <h2 class="project_preview__info__name">
+            {{ projectName }}
+            <small class="project_preview__info__category fancy_color">
+              {{ projectCategory }}
+            </small>
+          </h2>
+
+          <p class="project_preview__info__description">
+            {{ projectDescription }}
+            
+            <slot name="more">
+            </slot>
+          </p>
+        </div>
+
+        <div class="project_preview__preview">
+          <div class="project_preview__preview__img_container">
+            <img
+              :src="projectImg"
+              class="project_preview__preview__img"
+              :alt="'Preview of the project' + projectName"
+            >
+          </div>
+        </div>
+      </div>
+    </div>
   `,
 }

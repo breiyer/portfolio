@@ -28,7 +28,7 @@ body {
   width: 100%;
   min-height: 100%;
   max-width: 100%;
-  background: linear-gradient(rgb(46, 46, 46), rgb(67, 67, 67), rgb(158, 158, 158));
+  background: linear-gradient(rgb(46, 46, 46), rgb(67, 67, 67), rgb(114, 114, 114));
 }
 
 :root {
