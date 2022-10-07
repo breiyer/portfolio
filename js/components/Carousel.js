@@ -4,7 +4,9 @@ const Carousel = {
     imgArray: { type: Array, required: true },
   },
   data() {
-    return {}
+    return {
+      imgActive: 0,
+    }
   },
   template: `
     <section
@@ -15,48 +17,44 @@ const Carousel = {
         <div class="carousel__carousel">
           <i
             class="fa-regular fa-circle-xmark fa-fw carousel__carousel__close_btn"
+            title="Close"
             @click="closeCarousel()"
           >
           </i>
 
           <img
-            v-for="item in collage"
-            :key="item.img"
-            :src="item.img"
-            :class="{ 'carousel__img--active': item.active }"
+            v-for="(item, index) in imgArray"
+            :key="item"
+            :src="item"
+            :class="{ 'carousel__img--active': index === imgActive }"
             class="carousel__img"
           >
         </div>
 
-        <nav
-          class="carousel__collage_preview_container"
-        >
-          <img
-            v-for="item in collage"
-            :key="'1' + item.img"
-            :src="item.img"
-            :class="{ 'carousel__collage_preview--active': item.active }"
-            class="carousel__collage_preview"
+        <div class="carousel__carousel_nav_container">
+          <nav
+            class="carousel__carousel_nav"
           >
-        </nav>
+            <img
+              v-for="(item, index) in imgArray"
+              :key="'1' + item"
+              :src="item"
+              :class="{ 'carousel__collage_preview--active': index === imgActive }"
+              class="carousel__collage_preview"
+              title="View in full screen"
+              @click="setImgPreview(index)"
+            >
+          </nav>
+        </div>
       </div>
     </section>
   `,
-  computed: {
-    collage() {
-      const collage = this.imgArray.map(
-        (img) => ({ img, active: false })
-      )
-      if (collage.lenght > 0) {
-        collage[0].active = true
-        console.log(collage, 'col', collage[0].active)
-      }
-      return collage
-    },
-  },
   methods: {
     closeCarousel() {
       this.$emit('closeCarousel')
+    },
+    setImgPreview(index) {
+      this.imgActive = index
     },
   },
 }
