@@ -239,14 +239,14 @@
             <fancy-button
               :btn-Disabled="project.sourceUrl === null"
               btn-Secondary
-              btn-text="Ver código"
+              :btn-text="setTranslationPoint('work_view_code_btn')"
               :btn-url="project.sourceUrl ?? '#'"
               :link-target="project.sourceUrl ?? ''"
             >
             </fancy-button>
 
             <fancy-button
-              btn-text="Ver proyecto"
+              :btn-text="setTranslationPoint('work_view_project_btn')"
               :btn-url="project.siteUrl"
               @btn-click="showProjectCollage(project.collageName)"
             >

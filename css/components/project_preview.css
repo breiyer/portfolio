@@ -80,6 +80,7 @@
   width: 100%;
   height: max-content;
   z-index: 1;
+  text-align: center;
 }
 .project_preview__preview__img_container::after {
   content: "";
@@ -106,7 +107,9 @@
 
 /* Img de la preview del proyecto */
 .project_preview__preview__img {
-  width: 100%;
+  width: max-content;
+  max-width: 100%;
+  max-height: 20rem;
   border-radius: 0.5rem;
   z-index: 1;
   box-shadow:

@@ -62,5 +62,11 @@
   },
   "work_title_down": {
     "es": "Web", "en": "Portfolio"
+  },
+  "work_view_code_btn": {
+    "es": "Ver código", "en": "View code"
+  },
+  "work_view_project_btn": {
+    "es": "Ver proyecto", "en": "View project"
   }
 }
