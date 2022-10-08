@@ -4,6 +4,7 @@
   align-items: center;
   position: relative;
   opacity: 0;
+  gap: 0.2rem;
 }
 
 /* Cuando se revele la sección de contactar */
@@ -22,6 +23,7 @@
   position: relative;
   font-size: 1rem;
   color: white;
+  padding-right: 0.3rem;
 }
 
 /* Responsive */

@@ -51,6 +51,7 @@
 
 /* Responsive */
 @media screen and (max-width: 1100px) {
+  /* El contenedor de toda la sección */
   .about__about_me_container {
     padding: 1rem 0.5rem;
     grid-area: about__about_me;
@@ -61,6 +62,11 @@
 }
 
 @media screen and (max-width: 700px) {
+  /* El contenedor de toda la sección */
+  .about__about_me_container {
+    padding: 0.1rem;
+  }
+
   /* El texto de arriba */
   .about__about_me_hi {
     font-size: 4.5rem;
@@ -108,5 +114,18 @@
   .about__about_me_info {
     font-size: 1.15rem;
     padding-right: 0.5rem;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  /* El texto de arriba */
+  .about__about_me_hi {
+    font-size: 2.1rem;
+  }
+
+  /* El texto de abajo */
+  .about__about_me_info {
+    font-size: 0.8rem;
+    padding-right: 0.3rem;
   }
 }

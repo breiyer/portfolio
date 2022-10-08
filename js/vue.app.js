@@ -59,6 +59,9 @@ const vueApp = createApp({
     IconLink: IconLink,
     ToggleBtn: ToggleBtn,
     SkillCard: SkillCard,
+    ProjectPreview: ProjectPreview,
+    FancyButton: FancyButton,
+    Carousel: Carousel,
   },
   data() {
     return {
@@ -181,6 +184,91 @@ const vueApp = createApp({
           ],
         },
       ],
+
+      // Lista de proyectos
+      portfolioArray: [
+        {
+          name: 'LiquidezYa',
+          role: 'Frontend',
+          sourceUrl: null,
+          siteUrl: 'https://liquidezya.com/',
+          collageName: null,
+        },
+        {
+          name: '2D_Game',
+          role: 'Full Stack',
+          sourceUrl: 'https://github.com/breiyer/2d_game',
+          siteUrl: 'https://breiyer.github.io/2d_game/',
+          collageName: null,
+        },
+        {
+          name: 'TuModo',
+          role: 'Full Stack',
+          sourceUrl: null,
+          siteUrl: null,
+          collageName: 'tumodo',
+        },
+        {
+          name: 'SuperPan',
+          role: 'Backend',
+          sourceUrl: null,
+          siteUrl: null,
+          collageName: 'superpan',
+        },
+        {
+          name: 'BDEGC',
+          role: 'Full Stack',
+          sourceUrl: null,
+          siteUrl: null,
+          collageName: 'bdegc',
+        },
+        {
+          name: 'AliJose',
+          role: 'Full Stack',
+          sourceUrl: null,
+          siteUrl: 'http://www.alijose.com/',
+          collageName: null,
+        },
+      ],
+      
+      // Lista con los collage de cada proyecto
+      collageArray: {
+        bdegc: [
+          '1.jpg',
+          '2.jpg',
+          '3.jpg',
+          '4.jpg',
+          '5.jpg',
+          '6.jpg',
+          '7.jpg',
+        ],
+        superpan: [
+          '1.jpeg',
+          '2.jpeg',
+          '3.jpeg',
+          '4.jpeg',
+          '5.jpeg',
+          '6.jpeg',
+          '7.jpeg',
+        ],
+        tumodo: [
+          '1.jpg',
+          '2.jpg',
+          '3.jpg',
+          '4.jpg',
+          '5.jpg',
+          '6.jpg',
+          '7.jpg',
+          '8.jpg',
+          '9.jpg',
+          '10.jpg',
+          '11.jpg',
+        ],
+      },
+      // El collage del proyecto activo
+      currentCollage: [],
+      // Para mostrar o no el carrusel
+      showCarousel: false,
     }
   },
 
@@ -324,5 +412,24 @@ const vueApp = createApp({
     watchNavBarItemClick() {
       if (this.showResponsiveNavBarMenu) this.toggleResponsiveNavBar()
     },
+
+    /**
+     * - Muestra el collage del proyecto especificado.
+     */
+    showProjectCollage(collageName) {
+      const arrayTemp = this.collageArray[collageName].map(
+        (img) => `img/projects/collages/${collageName}/${img}`
+      )
+      this.currentCollage = arrayTemp
+      console.log(this.currentCollage, 'c')
+      this.showCarousel = true
+    },
+
+    /**
+     * - Cierra el collage
+     */
+    closeProjectCollage() {
+      this.showCarousel = false
+    }
   }
 }).mount('#app')
