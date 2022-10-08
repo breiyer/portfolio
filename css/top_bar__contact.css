@@ -4,6 +4,7 @@
   align-items: center;
   position: relative;
   opacity: 0;
+  gap: 0.2rem;
 }
 
 /* Cuando se revele la sección de contactar */

@@ -230,7 +230,7 @@
           :project-img="`img/projects/${project.name.toLowerCase()}.jpg`"
           :project-name="project.name"
           :project-category="project.role"
-          :project-description="project.description"
+          :project-description="setTranslationPoint(`project__${project.name.toLowerCase()}`)"
         >
           <template #more>
             <br>

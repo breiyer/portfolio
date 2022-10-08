@@ -190,7 +190,6 @@ const vueApp = createApp({
         {
           name: 'LiquidezYa',
           role: 'Frontend',
-          description: 'Plataforma de factoring electrónico para generar liquidez de manera fácil y garantizar la sostenibilidad de tu negocio. Cuenta con opciones de financiación y acompañamiento.',
           sourceUrl: null,
           siteUrl: 'https://liquidezya.com/',
           collageName: null,
@@ -198,7 +197,6 @@ const vueApp = createApp({
         {
           name: '2D_Game',
           role: 'Full Stack',
-          description: 'Videojuego 2D de disparos desarrollado con tecnologías web; HTML, CSS, y JS Vainilla.',
           sourceUrl: 'https://github.com/breiyer/2d_game',
           siteUrl: 'https://breiyer.github.io/2d_game/',
           collageName: null,
@@ -206,7 +204,6 @@ const vueApp = createApp({
         {
           name: 'TuModo',
           role: 'Full Stack',
-          description: 'Web app para interconectar la comunidad de tutores y estudiantes mediante un enfoque de comercio de contenido digital en base a una AVA.',
           sourceUrl: null,
           siteUrl: null,
           collageName: 'tumodo',
@@ -214,7 +211,6 @@ const vueApp = createApp({
         {
           name: 'SuperPan',
           role: 'Backend',
-          description: 'Aplicación para dispositivos Android. Venta de productos de panadería, cuenta con un carrito y pedidos a domicilio.',
           sourceUrl: null,
           siteUrl: null,
           collageName: 'superpan',
@@ -222,7 +218,6 @@ const vueApp = createApp({
         {
           name: 'BDEGC',
           role: 'Full Stack',
-          description: 'Web app que almacena documentos (DNI, Visa, Carnet, Licencias etc) que han sido extraviados, con el fin de brindar un servicio de localización siempre que el documento se encuentre en poder de las franquicias asociadas al proyecto.',
           sourceUrl: null,
           siteUrl: null,
           collageName: 'bdegc',
@@ -230,7 +225,6 @@ const vueApp = createApp({
         {
           name: 'AliJose',
           role: 'Full Stack',
-          description: 'Página web para presentar los servicios de una Sociedad Limitada, dentro de los cuales se encuentran servicios de hotelería y EDS.',
           sourceUrl: null,
           siteUrl: 'http://www.alijose.com/',
           collageName: null,

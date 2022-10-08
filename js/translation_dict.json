@@ -68,5 +68,30 @@
   },
   "work_view_project_btn": {
     "es": "Ver proyecto", "en": "View project"
+  },
+
+  "project__liquidezya": {
+    "es": "Plataforma de factoring electrónico para generar liquidez de manera fácil y garantizar la sostenibilidad de tu negocio. Cuenta con opciones de financiación y acompañamiento.",
+    "en": "Electronic factoring platform to easily generate liquidity and guarantee the sustainability of your business. It has financing and support options."
+  },
+  "project__2d_game": {
+    "es": "Videojuego 2D de disparos desarrollado con tecnologías web; HTML, CSS, y JS Vainilla.",
+    "en": "2D shooting video game developed with web technologies; HTML, CSS, and JS Vanilla."
+  },
+  "project__tumodo": {
+    "es": "Web app para interconectar la comunidad de tutores y estudiantes mediante un enfoque de comercio de contenido digital en base a una AVA.",
+    "en": "Web app to interconnect the community of tutors and students through a digital content commerce approach based on an VLE."
+  },
+  "project__superpan": {
+    "es": "Aplicación para dispositivos Android. Venta de productos de panadería, cuenta con un carrito y pedidos a domicilio.",
+    "en": "Application for Android devices. Sale of bakery products, has a cart and home orders."
+  },
+  "project__bdegc": {
+    "es": "Web app que almacena documentos de identidad que han sido extraviados, con el fin de brindar un servicio de localización siempre que el documento se encuentre en poder de las entidades asociadas al proyecto.",
+    "en": "Web app that stores identity documents that have been lost, in order to provide a location service as long as the document is in the possession of the entities associated with the project."
+  },
+  "project__alijose": {
+    "es": "Página web para presentar los servicios de una Sociedad Limitada, dentro de los cuales se encuentran servicios de hotelería y EDS.",
+    "en": "Web page to present the services of a Limited Company, among which are hotel services and service stations."
   }
 }
