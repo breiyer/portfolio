@@ -1,0 +1,85 @@
+/* El contenedor de toda la sección de Work */
+.p_sections--work {
+  padding-top: 5rem;
+}
+
+/* El título */
+.work__title {
+  padding: 0.1rem;
+  margin-top: 2rem;
+  margin-bottom: 6rem;
+  width: 100%;
+  text-align: center;
+  font-size: 6rem;
+  font-style: normal;
+  display: inline-block;
+  font-family: 'Rubik Dirt', cursive;
+  text-shadow: 4px 4px 0 var(--color1), -4px -4px 0 var(--color2);
+  color: black;
+  position: relative;
+}
+
+.work__title::before,
+.work__title::after {
+  content: "";
+  width: 60%;
+  height: 4px;
+  position: absolute;
+}
+
+.work__title::before {
+  background-color: var(--color1);
+  left: 0;
+  bottom: 0;
+}
+.work__title::after {
+  background-color: var(--color2);
+  right: 0;
+  top: 0;
+}
+
+/* El contenedor de los proyectos */
+.work__projects_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  gap: 7rem;
+}
+
+@media screen and (max-width: 700px) {
+  /* El título */
+  .work__title {
+    font-size: 5rem;
+    letter-spacing: 0.5rem;
+  }
+}
+
+@media screen and (max-width: 533px) {
+  /* El título */
+  .work__title {
+    font-size: 4rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  /* El título */
+  .work__title {
+    font-size: 3rem;
+  }
+}
+
+@media screen and (max-width: 315px) {
+  /* El título */
+  .work__title {
+    font-size: 2.8rem;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  /* El título */
+  .work__title {
+    font-size: 2.5rem;
+  }
+}

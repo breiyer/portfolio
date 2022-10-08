@@ -21,7 +21,7 @@ const IconLink = {
       rel="noopener noreferrer"
       :title="linkTitle"
     >
-      <em :class="fwIcon + ' fa-fw fa-lg'"></em>
+      <em :class="fwIcon + ' icon_link__icon'"></em>
     </a>
   `,
 }
