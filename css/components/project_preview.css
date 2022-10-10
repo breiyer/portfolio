@@ -176,6 +176,11 @@
     padding-bottom: 0;
   }
 
+  /* El título del proyecto */
+  .project_preview__info__name {
+    letter-spacing: -0.1rem;
+  }
+
   /* Descripción del proyecto */
   .project_preview__info__description {
     font-size: 1rem;
